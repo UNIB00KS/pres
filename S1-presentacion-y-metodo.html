@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 1 · Presentación y contrato metodológico — Filosofía y conocimiento (26311M9)</title>
+<meta name="description" content="Panel de decisión docente para la sesión inaugural de Filosofía y conocimiento (26311M9, v.6 2026): opciones de apertura, justificación de la dinámica de talleres, casos y exposiciones, y mapa de competencias.">
+<meta name="author" content="Miguel Moreno Muñoz">
+<style>
+:root{
+  --bg:#fbfaf7; --bg-alt:#f2efe9; --card:#ffffff; --ink:#1d1f21; --ink-soft:#4a4f55;
+  --line:#ddd8ce; --accent:#7b3f00; --accent-soft:#a8672a; --accent-bg:#f6ecdf;
+  --ok:#2f6f4f; --ok-bg:#e6f1ea; --warn:#8a5a00; --warn-bg:#fbf0d9; --risk:#8f2f2f; --risk-bg:#f8e6e6;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 6px 18px rgba(0,0,0,.05);
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#15171a; --bg-alt:#1c1f23; --card:#1e2226; --ink:#e8e6e1; --ink-soft:#a8adb4;
+    --line:#333940; --accent:#e0a266; --accent-soft:#c9884a; --accent-bg:#2a221a;
+    --ok:#7fc4a0; --ok-bg:#1c2a23; --warn:#e0b662; --warn-bg:#2b2517; --risk:#e08a8a; --risk-bg:#2c1c1c;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:74rem;margin:0 auto;padding:0 1.25rem 5rem}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.22;font-weight:600}
+h1{font-size:2.05rem;margin:0 0 .35rem}
+h2{font-size:1.55rem;margin:3rem 0 .6rem;padding-bottom:.35rem;border-bottom:2px solid var(--line)}
+h3{font-size:1.2rem;margin:1.9rem 0 .4rem}
+h4{font-size:1.02rem;margin:1.2rem 0 .3rem;font-family:var(--sans);font-weight:700;letter-spacing:.01em}
+p{margin:.65rem 0}
+a{color:var(--accent);text-underline-offset:2px}
+code,kbd{font-family:var(--mono);font-size:.87em;background:var(--bg-alt);padding:.08em .35em;border-radius:4px;border:1px solid var(--line)}
+kbd{box-shadow:0 1px 0 var(--line)}
+small{color:var(--ink-soft)}
+
+/* ---------- cabecera ---------- */
+header.masthead{background:var(--bg-alt);border-bottom:1px solid var(--line);padding:2.4rem 0 1.8rem;margin-bottom:0}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft);margin:0 0 .5rem}
+.subtitle{color:var(--ink-soft);font-size:1.05rem;margin:.4rem 0 1rem;max-width:52rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
+.chip{font-family:var(--mono);font-size:.72rem;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.2rem .65rem;color:var(--ink-soft)}
+
+/* ---------- navegación ---------- */
+nav.toc{position:sticky;top:0;z-index:20;background:var(--bg);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:.5rem 0}
+nav.toc ol{display:flex;flex-wrap:wrap;gap:.15rem;list-style:none;margin:0 auto;padding:0 1.25rem;max-width:74rem;counter-reset:n}
+nav.toc a{display:block;font-size:.79rem;padding:.28rem .6rem;border-radius:6px;text-decoration:none;color:var(--ink-soft)}
+nav.toc a:hover{background:var(--accent-bg);color:var(--accent)}
+nav.toc a.on{background:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){nav.toc a.on{color:#15171a}}
+
+/* ---------- bloques ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.15rem 1.3rem;box-shadow:var(--shadow);margin:1rem 0}
+.callout{border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:1.1rem 0}
+.callout.ok{border-color:var(--ok);background:var(--ok-bg)}
+.callout.warn{border-color:var(--warn);background:var(--warn-bg)}
+.callout.risk{border-color:var(--risk);background:var(--risk-bg)}
+.callout > :first-child{margin-top:0}
+.callout > :last-child{margin-bottom:0}
+.lede{font-size:1.07rem;color:var(--ink-soft);max-width:56rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1rem}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.9rem}
+
+/* ---------- tablas ---------- */
+.tablewrap{overflow-x:auto;margin:1rem 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--bg-alt);font-family:var(--sans);font-size:.78rem;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft);position:sticky;top:0}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-bg)}
+td.num{text-align:right;font-family:var(--mono);white-space:nowrap}
+
+/* ---------- opciones ---------- */
+.opt{border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:var(--shadow);margin:1rem 0;overflow:hidden}
+.opt > summary{cursor:pointer;padding:.9rem 1.1rem;display:flex;gap:.8rem;align-items:baseline;list-style:none;font-family:var(--serif);font-size:1.12rem;font-weight:600}
+.opt > summary::-webkit-details-marker{display:none}
+.opt > summary::after{content:"▸";margin-left:auto;color:var(--accent-soft);font-size:1rem;transition:transform .15s}
+.opt[open] > summary::after{transform:rotate(90deg)}
+.opt > summary:hover{background:var(--accent-bg)}
+.opt .badge{font-family:var(--mono);font-size:.7rem;background:var(--accent);color:#fff;border-radius:5px;padding:.12rem .45rem;letter-spacing:.06em}
+@media (prefers-color-scheme:dark){.opt .badge{color:#15171a}}
+.opt .body{padding:0 1.1rem 1.1rem;border-top:1px solid var(--line)}
+.opt .body h4:first-child{margin-top:.9rem}
+.tag{display:inline-block;font-family:var(--mono);font-size:.68rem;border:1px solid var(--line);border-radius:5px;padding:.08rem .35rem;margin:.1rem .18rem .1rem 0;color:var(--ink-soft);background:var(--bg-alt);white-space:nowrap}
+.tag.c{border-color:var(--accent-soft);color:var(--accent);background:var(--accent-bg)}
+
+/* ---------- barras de valoración ---------- */
+.bars{display:grid;grid-template-columns:auto 1fr auto;gap:.3rem .6rem;align-items:center;font-size:.8rem;margin:.6rem 0}
+.bars .lab{color:var(--ink-soft)}
+.bar{height:8px;background:var(--bg-alt);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.bar > i{display:block;height:100%;background:var(--accent-soft)}
+.bar.inv > i{background:var(--risk)}
+.bars .val{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft)}
+
+/* ---------- guion minutado ---------- */
+.controls{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.8rem 0 1rem}
+.controls label{font-size:.85rem;color:var(--ink-soft)}
+select,input[type=number],button{font:inherit;font-size:.88rem;padding:.35rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+button{cursor:pointer}
+button:hover{border-color:var(--accent-soft);color:var(--accent)}
+button.pill{border-radius:999px;font-size:.78rem;padding:.28rem .7rem}
+button.pill[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+@media (prefers-color-scheme:dark){button.pill[aria-pressed=true]{color:#15171a}}
+#total-check{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft)}
+
+/* ---------- matriz de competencias ---------- */
+.matrix td.hit{background:var(--accent-bg);color:var(--accent);font-weight:700;text-align:center;font-family:var(--mono)}
+.matrix td.miss{text-align:center;color:var(--line)}
+.matrix th.rot{font-size:.7rem;white-space:normal;min-width:5.2rem;vertical-align:bottom}
+.matrix tr.dim{opacity:.32}
+.comp-code{font-family:var(--mono);font-weight:700;color:var(--accent);white-space:nowrap}
+.legend{font-size:.8rem;color:var(--ink-soft);margin:.5rem 0}
+
+footer{margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink-soft)}
+
+@media print{
+  nav.toc,.controls,button{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  .card,.opt,.tablewrap{box-shadow:none;break-inside:avoid}
+  .opt .body{display:block!important}
+  h2{break-after:avoid}
+  a{color:#000;text-decoration:none}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Filosofía y conocimiento · 26311M9 · v.6 — 2026 · Parte I, sesión 1</p>
+    <h1>Presentación de la materia y contrato metodológico</h1>
+    <p class="subtitle">Panel de decisión docente: cinco opciones de apertura valoradas, la justificación de la arquitectura de talleres, casos y exposiciones individuales, y el mapa de competencias que cada actividad activa.</p>
+    <div class="meta-row">
+      <span class="chip">4.º Grado en Filosofía · UGR</span>
+      <span class="chip">Classroom 55i265wd</span>
+      <span class="chip">Monografía caps. 1–6</span>
+      <span class="chip">Evaluación 40 / 40 / 20</span>
+      <span class="chip">3 talleres × 10</span>
+      <span class="chip" id="stamp">—</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Índice">
+  <ol>
+    <li><a href="#problema">1 · El problema</a></li>
+    <li><a href="#opciones">2 · Cinco aperturas</a></li>
+    <li><a href="#comparativa">3 · Comparativa</a></li>
+    <li><a href="#guion">4 · Guion minutado</a></li>
+    <li><a href="#arquitectura">5 · Talleres, casos, exposiciones</a></li>
+    <li><a href="#competencias">6 · Mapa de competencias</a></li>
+    <li><a href="#libro">7 · Cómo se usa el libro</a></li>
+    <li><a href="#contrato">8 · Contrato</a></li>
+    <li><a href="#anexo">9 · Decisiones fijadas</a></li>
+  </ol>
+</nav>
+
+<div class="wrap">
+
+<!-- =============== 1 =============== -->
+<h2 id="problema">1 · Qué tiene que conseguir la sesión inaugural</h2>
+
+<p class="lede">La primera sesión de una asignatura de cuarto no compite por la atención: compite por la <strong>adhesión al método</strong>. El estudiante ya sabe asistir; lo que decide en las dos primeras semanas es si va a trabajar como quien prepara un dosier o como quien prepara un examen.</p>
+
+<div class="grid3">
+  <div class="card">
+    <h4>Objetivo 1 — Desplazar la expectativa</h4>
+    <p>La epistemología aplicada no es el apéndice práctico de la teoría del conocimiento: es la parte donde las distinciones se pagan o se cobran. Hay que mostrarlo con un caso, no anunciarlo.</p>
+  </div>
+  <div class="card">
+    <h4>Objetivo 2 — Explicitar el contrato</h4>
+    <p>El 40/40/20 no es un reparto administrativo. Codifica una tesis del propio curso: el conocimiento se produce y se valida <em>socialmente</em>. Si se presenta sin esa justificación, se lee como burocracia.</p>
+  </div>
+  <div class="card">
+    <h4>Objetivo 3 — Que salgan con una pregunta</h4>
+    <p>El indicador de una buena sesión 1 no es que hayan copiado el temario, sino que al menos un tercio del aula pueda formular <em>qué le gustaría comprobar</em> de lo que se ha dicho en clase.</p>
+  </div>
+</div>
+
+<div class="callout risk">
+<p><strong>El fallo por defecto.</strong> La sesión «índice + bibliografía + criterios de evaluación» produce asistencia sin adhesión: el estudiante infiere, razonablemente, que la materia se aprueba leyendo y que las actividades son un peaje. Después, el 40&nbsp;% de talleres y exposiciones se cumple al mínimo, y el docente concluye que el grupo «no participa». El problema se generó el primer día.</p>
+</div>
+
+<h3>Restricción de partida</h3>
+<p>Las opciones que siguen están valoradas para una <strong>Parte I de dos semanas sobre los capítulos 1–6</strong>, con el material ya publicado y navegable, y con el bloque de lecturas obligatorias en Classroom. No suponen ninguna preparación previa del estudiante: en la sesión 1 nadie ha leído nada, y cualquier diseño que lo dé por supuesto fracasa.</p>
+
+<!-- =============== 2 =============== -->
+<h2 id="opciones">2 · Cinco maneras de abrir, valoradas</h2>
+
+<p>Cada opción se describe con su núcleo, lo que exige del docente, lo que puede salir mal y su anclaje en el material ya existente. <strong>No son excluyentes:</strong> la recomendación del §4 combina tres de ellas.</p>
+
+<details class="opt" open>
+<summary><span class="badge">A</span> Apertura por caso vivo local: quién sabía qué, y cuándo</summary>
+<div class="body">
+<h4>Núcleo</h4>
+<p>Se reconstruye en pizarra la cronología de un episodio reciente de gestión de riesgo con impacto en Andalucía o en España —inundaciones, incendios, ola de calor— separando tres líneas que el debate público mezcla: <em>qué se sabía</em>, <em>quién tenía competencia para actuar</em> y <em>qué decisión dependía de esa información</em>. La pregunta que organiza la hora no es «quién tuvo la culpa», sino <strong>«qué pieza de conocimiento, de haber circulado a tiempo, habría cambiado la decisión»</strong>.</p>
+<h4>Por qué motiva</h4>
+<p>Convierte una discusión que el aula ya ha tenido en el bar en un objeto analizable. El estudiante descubre que tenía opiniones firmes sobre un asunto cuya estructura epistémica no había examinado, y esa es exactamente la experiencia que justifica la asignatura.</p>
+<h4>Anclaje en el material</h4>
+<p>Capítulo 1: el bloque sobre competencias administrativas y cauces urbanos, con las declaraciones cruzadas y el texto de la Confederación Hidrográfica del Guadalquivir, ya contiene el material documental. Capítulo 2 §2.2 para la asimetría entre consenso técnico y debate social.</p>
+<h4>Exige del docente</h4>
+<p>Una cronología preparada con fechas y fuentes a la vista (dos diapositivas o el propio libro proyectado). Y una decisión previa sobre el encuadre político.</p>
+<div class="callout risk"><p><strong>Riesgo.</strong> Politización inmediata: el aula se divide por afinidad partidista en el minuto ocho y la sesión se pierde. <strong>Mitigación:</strong> anunciar de entrada la regla —«hoy no evaluamos responsabilidades políticas, sino trayectorias de información»— y sostenerla devolviendo cada intervención a la pregunta de qué se sabía y por qué canal.</p></div>
+<p><span class="tag c">CG06</span><span class="tag c">CG08</span><span class="tag c">CE07</span><span class="tag c">CE13</span><span class="tag c">CT09</span><span class="tag c">CT18</span></p>
+</div>
+</details>
+
+<details class="opt">
+<summary><span class="badge">B</span> Autopsia de una afirmación: la cadena de verificación, en directo</summary>
+<div class="body">
+<h4>Núcleo</h4>
+<p>Se toma una afirmación en circulación esa misma semana —un titular sobre un estudio, una cifra que se repite, un dato atribuido a un organismo— y se recorre la cadena completa delante del aula: quién lo dice, de dónde lo saca, existe el documento, dice lo que se le atribuye, con qué muestra y con qué financiación. Veinte minutos, con el proyector y el buscador.</p>
+<h4>Por qué motiva</h4>
+<p>Es la demostración más económica de que aquí hay un <em>método</em> y no una colección de opiniones ilustradas. Además produce un resultado imprevisible en directo, lo que la hace memorable con independencia de cómo salga: si la afirmación resiste, se ha aprendido a confirmar; si se cae, se ha aprendido a detectar.</p>
+<h4>Anclaje en el material</h4>
+<p>El apartado <em>Método y criterios editoriales</em> del prefacio declara los criterios de admisión de una fuente. El capítulo 4 aporta el aparato: revisión por pares, retractaciones, índices de impacto, cárteles de citación. El bloque sobre agentes de IA en el ciclo de investigación (cap. 4) sirve si la afirmación procede de una respuesta de chatbot.</p>
+<h4>Exige del docente</h4>
+<p>Elegir la afirmación con criterio y <strong>haberla recorrido antes</strong>. Improvisar la búsqueda en directo sin conocer el desenlace es un riesgo innecesario en la sesión 1.</p>
+<div class="callout warn"><p><strong>Riesgo.</strong> Dependencia de la conexión y del azar del caso elegido. <strong>Mitigación:</strong> llevar capturas de los tres pasos críticos por si falla la red, y un caso de reserva ya cerrado.</p></div>
+<p><span class="tag c">CG03</span><span class="tag c">CG15</span><span class="tag c">CE05</span><span class="tag c">CT04</span><span class="tag c">CT06</span><span class="tag c">CT10</span></p>
+</div>
+</details>
+
+<details class="opt">
+<summary><span class="badge">C</span> El libro como objeto de estudio: someter el material al criterio del curso</summary>
+<div class="body">
+<h4>Núcleo</h4>
+<p>Se abre la monografía por el apartado donde declara sus propios criterios de verificación y se somete a prueba una de sus afirmaciones, elegida al azar entre las que llevan cita. Se comprueba el DOI, se abre la fuente, se contrasta lo que dice con lo que el libro afirma que dice. El docente anuncia que si el resultado es adverso, se corregirá en la siguiente versión y se acreditará a quien lo detecte.</p>
+<h4>Por qué motiva</h4>
+<p>Instala en el primer día la norma que gobierna todo lo demás: <strong>aquí se comprueba todo, incluido el profesor y su libro</strong>. Y transforma el material de la asignatura de autoridad en objeto: los bloques de referencias dejan de ser aparato decorativo y pasan a ser el material sobre el que se trabaja, que es su función real.</p>
+<h4>Anclaje en el material</h4>
+<p>Los bloques plegables de <em>Lecturas del apartado</em> —seis a diez entradas con enlace activo por sección— fueron concebidos como material de comprobación en clase, no como bibliografía acreditativa. Esta apertura hace explícito ese diseño.</p>
+<h4>Exige del docente</h4>
+<p>Tolerancia al resultado adverso y la voluntad de convertirlo en mérito evaluable. Es la opción con mayor rendimiento pedagógico y mayor exposición personal.</p>
+<div class="callout warn"><p><strong>Riesgo.</strong> Ejecutada con solemnidad, se lee como exhibición. <strong>Mitigación:</strong> tono deportivo, tiempo corto (quince minutos) y un incentivo declarado —«el hallazgo documentado de un error en el libro cuenta como aportación en el bloque de participación».</p></div>
+<p><span class="tag c">CG03</span><span class="tag c">CG19</span><span class="tag c">CE05</span><span class="tag c">CE15</span><span class="tag c">CT10</span><span class="tag c">CT13</span></p>
+</div>
+</details>
+
+<details class="opt">
+<summary><span class="badge">D</span> Test de calibración: el desacuerdo del aula como dato</summary>
+<div class="body">
+<h4>Núcleo</h4>
+<p>Ocho a diez afirmaciones breves, respondidas de forma anónima con grado de confianza (de 0 a 100&nbsp;%): unas verdaderas, otras falsas, otras <em>indecidibles con la información disponible</em>. Se proyecta la distribución del aula y se discuten dos o tres. La lección no es quién acertó, sino <strong>la relación entre confianza y acierto</strong>: dónde el grupo estaba seguro y equivocado, que es el territorio propio de la asignatura.</p>
+<h4>Por qué motiva</h4>
+<p>Participación desde el minuto cinco sin exponer a nadie. Y genera una <strong>línea base medible</strong>: repetido el último día con los mismos ítems, documenta el progreso del grupo con un dato, no con una impresión.</p>
+<h4>Anclaje en el material</h4>
+<p>Los ítems se extraen del capítulo 1 —tipos de conocimiento, testimonio y dependencia epistémica, demarcación, teorías de la verdad— y del capítulo 3 —qué afirma exactamente el consenso climático y qué no—. Los ítems <em>indecidibles</em> son el corazón del ejercicio: entrenan a distinguir «falso» de «no determinable con lo que tenemos».</p>
+<h4>Exige del docente</h4>
+<p>Redactar los ítems con precisión quirúrgica (un ítem ambiguo destruye el ejercicio) y un medio de recogida: formulario de Classroom, tarjetas de colores o manos alzadas por tramos de confianza.</p>
+<div class="callout warn"><p><strong>Riesgo.</strong> Quedarse en juego de concurso. <strong>Mitigación:</strong> cerrar siempre con la lección epistemológica explícita —la sobreconfianza no es un defecto de carácter sino un fallo de calibración, y se corrige con procedimiento.</p></div>
+<p><span class="tag c">CG10</span><span class="tag c">CG19</span><span class="tag c">CE13</span><span class="tag c">CT09</span><span class="tag c">CT10</span></p>
+</div>
+</details>
+
+<details class="opt">
+<summary><span class="badge">E</span> Mapa del terreno: seis temas, seis preguntas, seis fallos reales</summary>
+<div class="body">
+<h4>Núcleo</h4>
+<p>Versión trabajada de la presentación clásica del programa. Cada capítulo no se anuncia por su título, sino por <strong>la pregunta que responde y el episodio real donde esa pregunta se decidió mal</strong>:</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Cap.</th><th>La pregunta</th><th>Dónde se decidió mal</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>¿Qué distingue saber de creer con convicción?</td><td>La ilusión de competencia: listas aprendidas que no permiten juzgar el caso siguiente.</td></tr>
+<tr><td class="num">2</td><td>¿Por qué el consenso técnico y el debate social divergen tanto?</td><td>Tabaco, ozono, lluvia ácida: el repertorio de la duda fabricada, reutilizado.</td></tr>
+<tr><td class="num">3</td><td>¿Qué hay que creer cuando no se puede comprobar en persona?</td><td>Escepticismo climático: la confusión entre posición filosófica y desconfianza estratégica.</td></tr>
+<tr><td class="num">4</td><td>¿Quién paga, quién evalúa, quién publica?</td><td>Cárteles de citación, retractaciones tardías, revisión por pares que no revisa.</td></tr>
+<tr><td class="num">5</td><td>¿De quién es el conocimiento producido con dinero público?</td><td>Patentes, muros de pago, terapias autorizadas y retiradas por precio.</td></tr>
+<tr><td class="num">6</td><td>¿Qué le hace a la deliberación pública una infraestructura algorítmica?</td><td>Propaganda en red, dataísmo, agentes de IA con desempeño declarado de experto.</td></tr>
+</tbody></table></div>
+<h4>Función</h4>
+<p>Es <strong>orientación, no motivación</strong>. Funciona muy bien en la segunda mitad de la sesión, una vez que el aula ya ha tenido una experiencia; abrir con ella desperdicia el momento de mayor atención del cuatrimestre.</p>
+<p><span class="tag c">CG01</span><span class="tag c">CG02</span><span class="tag c">CG07</span><span class="tag c">CE08</span><span class="tag c">CT01</span></p>
+</div>
+</details>
+
+<!-- =============== 3 =============== -->
+<h2 id="comparativa">3 · Comparativa</h2>
+
+<p class="legend">Valoración en cinco dimensiones (0–5). <em>Coste de preparación</em> y <em>riesgo en aula</em> se leen al revés: menos es mejor, y por eso van en rojo.</p>
+
+<div class="grid2" id="cards-comparativa"></div>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>Opción</th><th>Mejor uso</th><th>Producto que deja</th><th>¿Reutilizable como evidencia de evaluación?</th></tr></thead>
+<tbody>
+<tr><td><strong>A</strong> Caso vivo</td><td>Apertura principal, 30–40 min</td><td>Una cronología en pizarra que puede fotografiarse y convertirse en el primer estudio de caso del curso</td><td>Sí — germen de un caso de taller</td></tr>
+<tr><td><strong>B</strong> Autopsia</td><td>Apertura principal o demostración de método, 20 min</td><td>Un protocolo de verificación de cinco pasos, escrito por el aula</td><td>Sí — plantilla para los dosieres de taller</td></tr>
+<tr><td><strong>C</strong> El libro a prueba</td><td>Cuña de 15 min, en cualquier punto</td><td>Una norma de aula y, con suerte, una errata documentada</td><td>Sí — aportación computable en participación</td></tr>
+<tr><td><strong>D</strong> Calibración</td><td>Arranque, 10–12 min</td><td>Distribución de confianza del grupo, archivada</td><td>Sí — línea base para medir progreso</td></tr>
+<tr><td><strong>E</strong> Mapa</td><td>Cierre orientador, 15–20 min</td><td>El esquema de las seis preguntas</td><td>No directamente</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout ok">
+<p><strong>Recomendación.</strong> Combinar <strong>D → A → E → contrato</strong>, con <strong>C</strong> como cuña de quince minutos si la sesión da de sí o reservada para la sesión 2. Razón: <em>D</em> compra participación temprana sin exponer a nadie; <em>A</em> entrega la experiencia que justifica la asignatura; <em>E</em> convierte esa experiencia en mapa; y el contrato llega cuando ya hay motivo para aceptarlo. <em>B</em> sustituye a <em>A</em> si prefieres abrir por método en lugar de por caso —opción defendible si el grupo viene de un cuatrimestre muy teórico—.</p>
+</div>
+
+<!-- =============== 4 =============== -->
+<h2 id="guion">4 · Guion minutado, parametrizable</h2>
+
+<p>Ajusta la duración real de tu sesión y la combinación elegida; los tiempos se recalculan proporcionalmente en tramos de cinco minutos.</p>
+
+<div class="controls">
+  <label for="dur">Duración de la sesión</label>
+  <select id="dur">
+    <option value="50">50 min</option>
+    <option value="90">90 min</option>
+    <option value="100">100 min</option>
+    <option value="110" selected>110 min</option>
+    <option value="120">120 min</option>
+  </select>
+  <label for="combo">Combinación</label>
+  <select id="combo">
+    <option value="rec" selected>Recomendada · D → A → E → contrato</option>
+    <option value="metodo">Por método · D → B → E → contrato</option>
+    <option value="meta">Con cuña meta · D → A → C → E → contrato</option>
+    <option value="sobria">Sobria · A → E → contrato</option>
+  </select>
+  <span id="total-check"></span>
+  <button onclick="window.print()">Imprimir guion</button>
+</div>
+
+<div class="tablewrap">
+<table id="guion-tabla">
+<thead><tr><th style="width:5.5rem">Reloj</th><th style="width:4.5rem">Min</th><th>Bloque</th><th>Qué se hace y qué se dice</th></tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
+<div class="callout">
+<p><strong>Los dos minutos que más rinden.</strong> Al cerrar el bloque del caso, antes de pasar al mapa: «Todo lo que acabamos de hacer —separar qué se sabía de quién decidía, buscar la fuente, mirar la fecha— tiene nombre técnico y una literatura de cincuenta años detrás. Eso es la asignatura.» Es la frase que convierte una hora interesante en un curso.</p>
+</div>
+
+<!-- =============== 5 =============== -->
+<h2 id="arquitectura">5 · Por qué talleres, casos y exposiciones individuales</h2>
+
+<p class="lede">La pregunta que el estudiante se hace el primer día —«¿por qué tanta actividad y tan poco examen?»— tiene una respuesta que no es organizativa sino <strong>sustantiva</strong>, y conviene darla explícitamente.</p>
+
+<div class="callout ok">
+<p><strong>El argumento de coherencia.</strong> Esta asignatura sostiene que el conocimiento es una empresa <em>social, distribuida y falible</em>: que la validación depende de procedimientos colectivos, que la dependencia epistémica respecto de otros es inevitable y que las patologías del conocimiento —captura del incentivo, cierre prematuro, deferencia mal dirigida— son estructurales, no morales. Una evaluación exclusivamente individual, escrita y memorística <strong>contradiría el contenido que enseña</strong>. La arquitectura de talleres, casos y exposiciones no ilustra la tesis del curso: la practica.</p>
+</div>
+
+<h3>Tres operaciones epistémicas distintas, no tres formatos intercambiables</h3>
+
+<div class="grid3">
+<div class="card">
+<h4>Exposición individual · <small>responsabilidad epistémica personal</small></h4>
+<p><strong>Qué entrena.</strong> Sostener una tesis ante pares, con el texto delante, y responder a la objeción sin refugiarse en el grupo. Es el único formato donde se hace visible si un texto de la bibliografía fundamental se ha comprendido o se ha resumido.</p>
+<p><strong>Qué no sustituye a las otras.</strong> No enfrenta al estudiante a información incompleta ni a la negociación del desacuerdo.</p>
+<p><strong>Criterio de calidad.</strong> Que formule una objeción a su propio texto y la responda.</p>
+<p><span class="tag c">CG05</span><span class="tag c">CG11</span><span class="tag c">CG12</span><span class="tag c">CE03</span><span class="tag c">CE15</span><span class="tag c">CT15</span><span class="tag c">CT17</span></p>
+</div>
+
+<div class="card">
+<h4>Estudio de caso · <small>juicio con datos incompletos</small></h4>
+<p><strong>Qué entrena.</strong> Transferir conceptos a episodios que no vienen etiquetados con el concepto que los explica. En el mundo, los problemas no llegan rotulados «esto es un caso de injusticia testimonial»: reconocerlo es la competencia.</p>
+<p><strong>Qué no sustituye.</strong> No exige defender una posición propia hasta el final ni producir documentación reutilizable.</p>
+<p><strong>Criterio de calidad.</strong> Que identifique qué información falta y qué habría cambiado con ella.</p>
+<p><span class="tag c">CG06</span><span class="tag c">CG07</span><span class="tag c">CG08</span><span class="tag c">CE07</span><span class="tag c">CE13</span><span class="tag c">CT07</span><span class="tag c">CT18</span></p>
+</div>
+
+<div class="card">
+<h4>Taller en grupo · <small>producción colectiva de conocimiento</small></h4>
+<p><strong>Qué entrena.</strong> Repartir el trabajo documental, contrastar fuentes que se contradicen y cerrar un dosier con desacuerdos explícitos. Es la única actividad donde el grupo experimenta desde dentro las patologías que el temario describe: deferencia al más seguro, parasitismo, cierre prematuro para acabar antes.</p>
+<p><strong>Qué no sustituye.</strong> Diluye la responsabilidad individual si no se pide traza de quién hizo qué.</p>
+<p><strong>Criterio de calidad.</strong> Que el dosier registre los desacuerdos internos no resueltos, en lugar de ocultarlos bajo una síntesis de consenso.</p>
+<p><span class="tag c">CG13</span><span class="tag c">CG15</span><span class="tag c">CE05</span><span class="tag c">CT02</span><span class="tag c">CT05</span><span class="tag c">CT11</span><span class="tag c">CT12</span><span class="tag c">CT16</span></p>
+</div>
+</div>
+
+<h3>Lo que hay que decir en voz alta el primer día</h3>
+<div class="callout">
+<p>«El 40&nbsp;% de talleres y exposiciones no es trabajo añadido al contenido: <strong>es el contenido</strong>. La asignatura sostiene que nadie valida conocimiento en solitario y que la mayor parte de lo que damos por sabido lo aceptamos por testimonio. Evaluaros solo con un examen individual sería enseñaros una tesis y calificaros con la contraria.»</p>
+</div>
+
+<h3>La cuestión del desacuerdo entre pares, en el diseño</h3>
+<p>Conviene aprovechar que el formato mismo plantea uno de los problemas centrales del curso. Cuando dos grupos llegan a conclusiones incompatibles sobre el mismo dosier, no hay que arbitrar de inmediato: ese es el momento en que la asignatura enseña sola. La pregunta al aula —<em>¿qué tendría que ser cierto para que la otra conclusión fuera la correcta?</em>— rinde más que cualquier corrección del docente, y prepara el terreno del capítulo 3.</p>
+
+<!-- =============== 6 =============== -->
+<h2 id="competencias">6 · Mapa de competencias</h2>
+
+<p>Competencias de la guía docente oficial de <em>Filosofía y conocimiento</em> (26311M9). Pulsa una actividad para ver solo las competencias que activa.</p>
+
+<div class="controls" id="filtros-comp">
+  <span style="font-size:.85rem;color:var(--ink-soft)">Filtrar por actividad:</span>
+  <button class="pill" data-col="0" aria-pressed="false">Exposición individual</button>
+  <button class="pill" data-col="1" aria-pressed="false">Estudio de caso</button>
+  <button class="pill" data-col="2" aria-pressed="false">Taller en grupo</button>
+  <button class="pill" data-col="3" aria-pressed="false">Tests y actividades</button>
+  <button class="pill" data-col="4" aria-pressed="false">Debate y participación</button>
+  <button class="pill" data-col="-1" aria-pressed="true">Todas</button>
+</div>
+
+<div class="tablewrap">
+<table class="matrix" id="matriz">
+<thead><tr>
+  <th style="width:4.5rem">Código</th><th>Enunciado oficial</th>
+  <th class="rot">Exposición individual</th><th class="rot">Estudio de caso</th><th class="rot">Taller en grupo</th><th class="rot">Tests y actividades</th><th class="rot">Debate y participación</th>
+</tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
+<h3>Resultados de aprendizaje y dónde se alcanzan</h3>
+<div class="tablewrap"><table>
+<thead><tr><th style="width:2.5rem">#</th><th>Resultado de aprendizaje (guía docente)</th><th>Actividad y material que lo sostiene</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>Conceptos, teorías y métodos para enfrentar el escepticismo pseudocientífico</td><td>Cap. 1 (demarcación, escepticismo) + tests; caso de apertura tipo B</td></tr>
+<tr><td class="num">2</td><td>Criterios para los debates contemporáneos sobre teorías científicas y racionalidad</td><td>Caps. 2 y 3; taller 5 (clima, energía, sostenibilidad)</td></tr>
+<tr><td class="num">3</td><td>Familiaridad con las relaciones ciencia–tecnología–sociedad</td><td>Caps. 4, 5 y 6; estudios de caso del índice</td></tr>
+<tr><td class="num">4</td><td>Desafíos interdisciplinares (neurociencias, biomedicina, computación)</td><td>Cap. 4 §agentes de IA; cap. 6 §IA generativa; taller 4</td></tr>
+<tr><td class="num">5</td><td>Crisis multidimensional y participación ciudadana informada</td><td>Cap. 6 (participación, democracia); epílogo</td></tr>
+<tr><td class="num">6</td><td>Ampliación del análisis a problemas nuevos</td><td>Dosier de taller: exige documentar un caso no tratado en el libro</td></tr>
+<tr><td class="num">7</td><td>Competencias comunicativas para transmitir conocimiento filosófico</td><td>Exposición individual + turno de preguntas</td></tr>
+</tbody></table></div>
+
+<div class="callout warn">
+<p><strong>Honestidad sobre la cobertura.</strong> Dos competencias transversales del listado oficial se activan de manera marginal en esta materia: <strong>CT20</strong> (iniciativa y espíritu emprendedor) y, en parte, <strong>CT19</strong> (creatividad, liderazgo y empatía). <strong>CG13</strong> (intervenir en congresos y reuniones científicas) solo se desarrolla realmente si las exposiciones se organizan con formato de sesión científica: tiempo tasado, moderación por un compañero y turno de preguntas obligatorio. Es un cambio de coste cero que convierte una competencia declarada en una competencia practicada, y conviene decidirlo antes de la sesión 2.</p>
+</div>
+
+<!-- =============== 7 =============== -->
+<h2 id="libro">7 · Cómo se usa el libro (diez minutos que ahorran el cuatrimestre)</h2>
+
+<p>La monografía no está diseñada para leerse en orden, y no decirlo el primer día genera una lectura ineficiente durante semanas.</p>
+
+<div class="grid2">
+<div class="card">
+<h4>1. Navegación transversal con <kbd>Ctrl</kbd>+<kbd>F</kbd></h4>
+<p>El fichero único existe para eso. Un término como «integridad» o «intereses» devuelve una decena o varias decenas de coincidencias repartidas por apartados y casos distintos: <strong>eso no es redundancia, es el índice real</strong>. Demostrarlo en directo con un término del temario cambia por completo cómo trabajan después.</p>
+</div>
+<div class="card">
+<h4>2. Los resaltados son funcionales</h4>
+<p>Las negritas y los énfasis están para que la coincidencia se localice de un vistazo al buscar. No son criterio tipográfico ni indicación de «lo importante para el examen».</p>
+</div>
+<div class="card">
+<h4>3. Los bloques de referencias son material de trabajo</h4>
+<p>Las <em>Lecturas del apartado</em> plegadas no son aparato acreditativo: son la lista sobre la que se trabaja. Se copian, se pinchan los enlaces, se amplía la búsqueda y se integran las aportaciones. <strong>Verificarlas es tarea del estudiante</strong>, y así hay que anunciarlo.</p>
+</div>
+<div class="card">
+<h4>4. Los bloques de «controversia abierta» son los puntos de debate</h4>
+<p>Señalan desacuerdos vivos en la literatura, no cuestiones cerradas. Son el mejor punto de partida para elegir tema de taller o de exposición, y así lo dice la propia guía de uso docente del libro.</p>
+</div>
+<div class="card">
+<h4>5. El glosario funciona como índice analítico</h4>
+<p>Cada entrada indica en qué secciones se usa el término, y los términos marcados en el cuerpo enlazan con su definición. Casi doscientas entradas.</p>
+</div>
+<div class="card">
+<h4>6. El índice de casos es la lista de la compra</h4>
+<p>Más de treinta ejemplos ya documentados. Para el bloque de participación y presentación de casos, es el punto de partida obligado: nadie debería elegir tema sin haberlo recorrido.</p>
+</div>
+</div>
+
+<p><small>Edición en línea: <a href="https://fcon2026.netlify.app/">fcon2026.netlify.app</a> · fichero único con DOI: <a href="https://doi.org/10.5281/zenodo.17284805">10.5281/zenodo.17284805</a>. Conviene proyectar la versión de fichero único al demostrar la búsqueda transversal.</small></p>
+
+<!-- =============== 8 =============== -->
+<h2 id="contrato">8 · El contrato, para proyectar</h2>
+
+<div class="tablewrap"><table>
+<thead><tr><th>Bloque</th><th>Peso</th><th>Qué se entrega</th><th>Qué se valora</th></tr></thead>
+<tbody>
+<tr><td>Actividades y tests en línea</td><td class="num">40&nbsp;%</td><td>Cuestionarios y tareas en Classroom sobre el desarrollo conceptual de cada capítulo</td><td>Precisión conceptual; distinguir lo que la fuente dice de lo que se le atribuye</td></tr>
+<tr><td>Exposiciones, casos y documentación para talleres</td><td class="num">40&nbsp;%</td><td>Exposición individual sobre un texto de la bibliografía fundamental + dosier de grupo</td><td>Sostener la tesis ante la objeción; trazabilidad de las fuentes del dosier</td></tr>
+<tr><td>Asistencia y participación activa</td><td class="num">20&nbsp;%</td><td>Presencia completa en la sesión (control inicial y final) e intervención en debates o en el intercambio de comentarios sobre casos y cuestiones, propias y ajenas</td><td><strong>Participación activa constatada</strong>, no presencia pasiva. Aportar contraste, no volumen; detectar y documentar un error cuenta</td></tr>
+</tbody></table></div>
+
+<div class="callout">
+<p><strong>Calendario de la Parte I.</strong> Dos semanas sobre los capítulos 1–6, con la monografía como material esencial. En paralelo, los textos de lectura obligada en Classroom (código <code>55i265wd</code>) para articular las exposiciones individuales. Conviene <strong>cerrar el reparto de exposiciones y la formación de los tres grupos de taller en la sesión 2 o 3</strong>, no más tarde: quien elige texto en la semana cuatro expone sin haber tenido tiempo de trabajarlo.</p>
+</div>
+
+<h3>Tres talleres, treinta estudiantes</h3>
+<p>Con una matrícula en torno a 30, el diseño previsto es de <strong>tres talleres de unos diez integrantes</strong>. El tamaño no es neutral y conviene tenerlo presente al repartir: diez personas es el umbral a partir del cual <strong>el parasitismo deja de ser detectable a simple vista</strong>. Dos medidas de coste cero lo corrigen —y, de paso, convierten en objeto de estudio una de las patologías que el temario describe:</p>
+<ul>
+<li><strong>Traza de autoría dentro del dosier</strong>: cada fuente incorporada lleva las iniciales de quien la localizó y verificó. No es vigilancia, es la práctica normal de un grupo de investigación, y hace evaluable la contribución individual dentro de un producto colectivo.</li>
+<li><strong>Rol rotatorio de contradictor</strong>: en cada sesión de taller, un integrante distinto tiene el encargo explícito de sostener la objeción más fuerte a la línea que el grupo está siguiendo. Es la contramedida barata contra el cierre prematuro, y hace del desacuerdo un rol asignado en vez de un acto de valentía personal.</li>
+</ul>
+<p>Los tres temas de taller se eligen entre los que la monografía cubre con material propio. Con la cobertura actual, la combinación más sólida es <strong>clima, energía y sostenibilidad</strong> (cap. 3 completo), <strong>robótica e inteligencia artificial</strong> (cap. 6 §6.7–6.8 y cap. 4 §4.8) y uno de los dos parcialmente cubiertos —<strong>ciberseguridad, desinformación y vigilancia</strong> (cap. 6 §6.5–6.6; cap. 5 §5.1–5.3) o <strong>escenarios de conflicto y prospectiva geopolítica</strong> (cap. 2 §2.2; cap. 6 §6.2)—, con la advertencia de que ese tercero exigirá documentación adicional al grupo, lo que puede presentarse como una ventaja: es el taller donde de verdad se investiga.</p>
+
+<div class="callout warn">
+<p><strong>Aviso que no puede faltar.</strong> Las ausencias injustificadas iniciales implican renuncia a la evaluación continua. Es la única cláusula de la guía docente con consecuencias irreversibles y debe decirse el primer día, con la fecha exacta a partir de la cual cuenta.</p>
+</div>
+
+<!-- =============== 9 =============== -->
+<h2 id="anexo">9 · Decisiones fijadas para este curso</h2>
+
+<p class="lede">Tres puntos que en la primera versión de este panel quedaban abiertos y que ya están resueltos. Conviene anunciarlos con estas palabras el primer día: son las tres preguntas que el aula hará antes de que acabe la semana.</p>
+
+<div class="grid3">
+<div class="card">
+<h4>Tres talleres, diez por grupo</h4>
+<p>Con una matrícula en torno a 30, el reparto es de <strong>tres talleres de unos diez integrantes</strong>, no cinco ni cuatro. La consecuencia práctica: hay que elegir tres de los temas previstos, y el criterio razonable es la cobertura documental disponible en el libro (§8).</p>
+</div>
+<div class="card">
+<h4>El 20&nbsp;% se gana interviniendo</h4>
+<p>Incluye <strong>aparecer, permanecer la sesión completa —hay control inicial y final— e intervenir</strong> en los debates o en el intercambio de comentarios sobre casos y cuestiones propias y ajenas. El criterio es <strong>participación activa constatada</strong>: la presencia pasiva no puntúa.</p>
+</div>
+<div class="card">
+<h4>Temas 7 y 8: bloque ajeno</h4>
+<p>Tienen <strong>su propio bloque docente y su propio ejercicio de evaluación</strong>, a cargo del profesorado que los imparta. Nada de su dinámica se anuncia desde aquí, porque puede variar según la asignación de cada curso.</p>
+</div>
+</div>
+
+<h3>Cómo formular el 20&nbsp;% sin que suene a control de asistencia</h3>
+<p>El doble control de presencia es la parte que peor se recibe si se presenta sola, y la que mejor se recibe si se presenta con su razón. La razón es del temario, no del reglamento: <strong>una comunidad epistémica no funciona por agregación de presencias, sino por intercambio sostenido</strong>; quien entra, firma y se va no ha participado en la producción de nada. Formulado así, el control inicial y final deja de leerse como desconfianza y pasa a leerse como lo que es, la condición material de que haya deliberación.</p>
+
+<div class="callout warn">
+<p><strong>El problema real de este criterio, dicho de frente.</strong> «Participación activa constatada» premia a quien habla con soltura y penaliza a quien piensa despacio o en voz baja, y en un grupo de treinta eso reparte el 20&nbsp;% por temperamento antes que por trabajo. La asignatura, que dedica un capítulo a la injusticia testimonial, no puede permitirse reproducirla en su propia evaluación. Tres correctivos baratos: admitir como intervención el <strong>comentario escrito sobre el caso de otro</strong> (mismo valor que el oral); asignar por turnos el <strong>rol de contradictor</strong> en los talleres, que obliga a intervenir a quien no lo haría; y computar como aportación el <strong>hallazgo documentado de un error</strong> —en el libro, en una fuente ajena o en un dosier de otro grupo—, que rinde a quien verifica más que a quien improvisa.</p>
+</div>
+
+<div class="callout ok">
+<p><strong>Salida de la sesión 1 hacia la sesión 2.</strong> Encargo de cinco minutos: que cada estudiante traiga <em>una afirmación que haya oído esta semana y que le gustaría comprobar</em>, con la fuente donde la oyó. Es material gratuito para la práctica de repaso de nociones previas, cuesta nada y compromete al grupo antes de la segunda clase.</p>
+</div>
+
+<footer>
+<p><strong>Filosofía y conocimiento</strong> (26311M9), 4.º del Grado en Filosofía, Universidad de Granada · Parte I, sesión 1 · v.6, curso 2026-2027.<br>
+Material de trabajo docente. Las competencias citadas son las de la guía docente oficial de la asignatura; el resto de referencias remiten a la monografía técnica <em>Filosofía y conocimiento</em> (v.6).</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- sello de fecha ---------- */
+  var stamp = document.getElementById("stamp");
+  if (stamp) {
+    var d = new Date();
+    stamp.textContent = "Consultado " + d.toLocaleDateString("es-ES", {day:"2-digit", month:"short", year:"numeric"});
+  }
+
+  /* ---------- comparativa: barras ---------- */
+  var DIMS = [
+    {k:"motiva", lab:"Motivación inicial", inv:false},
+    {k:"prep",   lab:"Coste de preparación", inv:true},
+    {k:"riesgo", lab:"Riesgo en aula", inv:true},
+    {k:"comp",   lab:"Cobertura de competencias", inv:false},
+    {k:"reuso",  lab:"Reutilizable en evaluación", inv:false}
+  ];
+  var OPTS = [
+    {id:"A", nom:"Caso vivo local", motiva:5, prep:3, riesgo:4, comp:4, reuso:4},
+    {id:"B", nom:"Autopsia de una afirmación", motiva:4, prep:3, riesgo:3, comp:4, reuso:5},
+    {id:"C", nom:"El libro a prueba", motiva:4, prep:2, riesgo:2, comp:3, reuso:3},
+    {id:"D", nom:"Test de calibración", motiva:4, prep:4, riesgo:1, comp:3, reuso:5},
+    {id:"E", nom:"Mapa del terreno", motiva:2, prep:1, riesgo:1, comp:3, reuso:1}
+  ];
+  var cont = document.getElementById("cards-comparativa");
+  if (cont) {
+    OPTS.forEach(function(o){
+      var html = '<div class="card"><h4>' + o.id + ' · ' + o.nom + '</h4><div class="bars">';
+      DIMS.forEach(function(d){
+        var v = o[d.k];
+        html += '<span class="lab">' + d.lab + '</span>' +
+                '<span class="bar' + (d.inv ? " inv" : "") + '"><i style="width:' + (v*20) + '%"></i></span>' +
+                '<span class="val">' + v + '/5</span>';
+      });
+      html += '</div></div>';
+      cont.insertAdjacentHTML("beforeend", html);
+    });
+  }
+
+  /* ---------- guion minutado ---------- */
+  var BLOQUES = {
+    bienvenida: {w:6,  t:"Encuadre",            d:"Quién soy, qué es esta asignatura en una frase y qué va a pasar hoy. Nada de temario todavía."},
+    calibracion:{w:12, t:"D · Calibración",     d:"Ocho ítems con grado de confianza, anónimos. Proyectar la distribución. Discutir dos: uno donde el aula acertó con poca confianza y otro donde falló con mucha."},
+    caso:       {w:32, t:"A · Caso vivo",       d:"Cronología en pizarra a tres columnas: qué se sabía / quién decidía / qué dependía de ello. Regla anunciada: hoy no juzgamos responsabilidades políticas."},
+    autopsia:   {w:32, t:"B · Autopsia",        d:"Recorrer en directo la cadena de una afirmación en circulación: quién lo dice, de dónde, existe el documento, dice eso, con qué muestra y financiación. Escribir los cinco pasos en la pizarra."},
+    libro:      {w:14, t:"C · El libro a prueba",d:"Abrir el apartado de criterios editoriales y comprobar una afirmación citada al azar. Anunciar que detectar un error documentado computa como aportación."},
+    mapa:       {w:18, t:"E · Mapa del terreno",d:"Los seis capítulos como seis preguntas y seis fallos reales. Enlazar cada uno con lo ocurrido en el bloque anterior."},
+    uso:        {w:10, t:"Cómo se usa el libro",d:"Demostración de búsqueda transversal con Ctrl-F sobre el fichero único. Los bloques de referencias son material de trabajo, no aparato."},
+    contrato:   {w:14, t:"Contrato y calendario",d:"40/40/20 con la justificación de coherencia, no como reparto administrativo. Fecha límite de la evaluación continua. Temas 7 y 8 fuera del libro."},
+    cierre:     {w:6,  t:"Encargo y cierre",    d:"Traer para la próxima una afirmación oída esta semana que quieran comprobar, con la fuente. Y la pregunta abierta del día."}
+  };
+  var COMBOS = {
+    rec:     ["bienvenida","calibracion","caso","mapa","uso","contrato","cierre"],
+    metodo:  ["bienvenida","calibracion","autopsia","mapa","uso","contrato","cierre"],
+    meta:    ["bienvenida","calibracion","caso","libro","mapa","uso","contrato","cierre"],
+    sobria:  ["bienvenida","caso","mapa","uso","contrato","cierre"]
+  };
+
+  function pintarGuion(){
+    var dur   = parseInt(document.getElementById("dur").value, 10);
+    var clave = document.getElementById("combo").value;
+    var lista = COMBOS[clave];
+    var pesos = lista.map(function(k){ return BLOQUES[k].w; });
+    var suma  = pesos.reduce(function(a,b){ return a+b; }, 0);
+
+    // reparto proporcional redondeado a 5 min, con mínimo de 5
+    var mins = pesos.map(function(w){ return Math.max(5, Math.round(dur*w/suma/5)*5); });
+    var dif  = dur - mins.reduce(function(a,b){ return a+b; }, 0);
+    // ajustar la diferencia sobre el bloque más largo
+    while (dif !== 0) {
+      var idx = mins.indexOf(Math.max.apply(null, mins));
+      var paso = dif > 0 ? 5 : -5;
+      if (mins[idx] + paso < 5) break;
+      mins[idx] += paso;
+      dif -= paso;
+    }
+
+    var cuerpo = document.querySelector("#guion-tabla tbody");
+    cuerpo.innerHTML = "";
+    var reloj = 0;
+    lista.forEach(function(k, i){
+      var b = BLOQUES[k];
+      var ini = reloj, fin = reloj + mins[i];
+      reloj = fin;
+      var tr = document.createElement("tr");
+      tr.innerHTML = '<td class="num">' + ini + "′–" + fin + '′</td>' +
+                     '<td class="num">' + mins[i] + '</td>' +
+                     "<td><strong>" + b.t + "</strong></td>" +
+                     "<td>" + b.d + "</td>";
+      cuerpo.appendChild(tr);
+    });
+    var chk = document.getElementById("total-check");
+    chk.textContent = "Total repartido: " + reloj + " min" + (reloj !== dur ? " (ajuste de " + (reloj - dur) + ")" : "");
+  }
+  document.getElementById("dur").addEventListener("change", pintarGuion);
+  document.getElementById("combo").addEventListener("change", pintarGuion);
+  pintarGuion();
+
+  /* ---------- matriz de competencias ----------
+     Columnas: 0 exposición individual · 1 estudio de caso · 2 taller · 3 tests · 4 debate     */
+  var COMPS = [
+    ["CG01","Poseer conocimientos suficientes para comprender los conceptos y las teorías más importantes de la historia de la filosofía, relacionándolos con otros de la misma época, de épocas distintas o de la actualidad.",[0,3]],
+    ["CG02","Poseer conocimientos suficientes para comprender los conceptos y las teorías fundamentales del pensamiento filosófico, sabiendo relacionarlos entre sí y con los de las diversas ramas de la filosofía.",[0,3]],
+    ["CG03","Habilidad para construir y criticar argumentos formales e informales, reconociendo su fuerza o debilidad y detectando cualquier falacia relevante.",[0,1,2,3,4]],
+    ["CG04","Conocer la lógica del lenguaje, siendo capaz de usarlo con precisión y estando atento a los engaños y errores que pueden derivarse de su inadecuada utilización.",[0,3,4]],
+    ["CG05","Capacidad de interpretar textos filosóficos, situándolos dentro de su contexto cultural y de sus respectivas tradiciones de pensamiento.",[0,3]],
+    ["CG06","Capacidad para analizar la estructura de problemas complejos y controvertidos, detectando, formulando y proponiendo enfoques alternativos a los problemas filosóficos en diversos campos de la sociedad, la ciencia y la cultura, tanto históricos como contemporáneos.",[1,2,4]],
+    ["CG07","Capacidad de utilizar los conocimientos adquiridos para iluminar y valorar los problemas que suscita renovadamente la ciencia contemporánea.",[1,2,4]],
+    ["CG08","Capacidad de utilizar los conocimientos adquiridos para comprender e interpretar el presente en toda su complejidad, justificando la toma de postura ante los problemas fundamentales que se plantean.",[1,2,4]],
+    ["CG10","Aptitud para dialogar con otros, con flexibilidad mental para apreciar diferentes perspectivas de un mismo problema, defendiendo las propias posiciones, respetando las de los demás y asumiendo las críticas.",[0,2,4]],
+    ["CG11","Capacidad para transmitir informaciones, conceptos y teorías filosóficas a un público especializado y no especializado.",[0,4]],
+    ["CG12","Capacidad para redactar artículos, comentarios e informes sobre problemas y actividades diversas, así como para su expresión oral, emitiendo sus propios juicios razonados y proponiendo alternativas.",[0,2]],
+    ["CG13","Capacidad de intervenir en congresos, actividades culturales y reuniones científicas con distintos tipos de participación y de intervención en los debate.",[0,2]],
+    ["CG15","Habilidad para documentarse por medios diversos, sabiendo buscar los datos más importantes en las fuentes originales y en los comentarios provenientes de la filosofía, de las ciencias y otras ramas de la cultura, o de la misma experiencia.",[1,2,3]],
+    ["CG17","Capacidad para comprender la relevancia del respeto a los derechos fundamentales y de igualdad entre hombres y mujeres, los principios de igualdad de oportunidades y accesibilidad universal de las personas con discapacidad, así como los fundamentos propios de una cultura de paz y de valores democráticos.",[4]],
+    ["CG18","Capacidad para fomentar el diálogo y la comunicación entre las diversas sociedades y culturas.",[4]],
+    ["CG19","Facilidad para revisar ideas nuevas o poco familiares con una mente abierta y una buena disposición o voluntad de cambiar las propias cuando éstas se vean equivocadas o perjudiciales.",[1,2,4]],
+    ["CG20","Facilidad para comprometerse con los intereses de la vida cotidiana, examinando problemas característicos de la razón práctica (temas de debate político y ético), mientras se permanece sensible a la diversidad de opiniones, prácticas y modos de vida.",[1,4]],
+    ["CE03","Articular, oralmente y por escrito, argumentos filosóficos propios y ajenos.",[0,2,4]],
+    ["CE05","Buscar, seleccionar, manejar y resumir información a partir de bibliografía especializada y documentos históricos.",[0,2,3]],
+    ["CE07","Capacidad de reconocer manifestaciones del debate filosófico en la práctica científica, política, artística, etc.",[1,2,4]],
+    ["CE08","Tener un conocimiento básico del contexto histórico, social y cultural de la actividad filosófica.",[0,1,3]],
+    ["CE13","Adquirir la habilidad de considerar un tema, problema o situación con un enfoque de conjunto, de modo que se examinen sus múltiples dimensiones desde una perspectiva que supere la simplificación.",[1,2,4]],
+    ["CE15","Defender de manera rigurosa y razonada los puntos de vista propios en relación a los problemas examinados en el curso y mediante el empleo de terminología filosófica básica.",[0,4]],
+    ["CE25","Discernir los presupuestos o principios de inteligibilidad subyacentes a los sistemas de ideas, explicitando los rasgos del paradigma que regula la producción de teorías y discursos.",[0,1,3]],
+    ["CT01","Capacidad de análisis y síntesis.",[0,1,2,3]],
+    ["CT02","Capacidad de organización y planificación.",[2]],
+    ["CT03","Destrezas informáticas y telemáticas.",[2,3]],
+    ["CT04","Capacidad de acceso a la información.",[1,2,3]],
+    ["CT05","Capacidad de registro, recuperación y gestión de la información.",[2,3]],
+    ["CT06","Habilidad en el uso productivo de las tecnologías de la información y la comunicación.",[2,3]],
+    ["CT07","Capacidad de resolución de problemas.",[1,2]],
+    ["CT08","Capacidad de toma de decisiones de manera autónoma.",[1,2]],
+    ["CT09","Capacidad de reflexión, análisis lógico y deliberación.",[0,1,2,4]],
+    ["CT10","Capacidad crítica y autocrítica.",[0,1,2,4]],
+    ["CT11","Habilidades para trabajar en equipo interdisciplinar y cooperar con otros.",[2]],
+    ["CT12","Capacidad de negociación y de consenso.",[2,4]],
+    ["CT13","Capacidad de indagación.",[1,2,3]],
+    ["CT14","Reconocimiento y respeto a la diversidad.",[4]],
+    ["CT15","Habilidades sociales y de comunicación.",[0,4]],
+    ["CT16","Habilidades y destrezas para trabajar en equipos colaborativos.",[2]],
+    ["CT17","Autonomía en el aprendizaje.",[0,3]],
+    ["CT18","Capacidad de aplicar los conocimientos a la práctica.",[1,2]],
+    ["CT19","Capacidad de creatividad, liderazgo y empatía.",[2]],
+    ["CT20","Iniciativa y espíritu emprendedor.",[]]
+  ];
+
+  var tbody = document.querySelector("#matriz tbody");
+  COMPS.forEach(function(c){
+    var tr = document.createElement("tr");
+    tr.dataset.cols = c[2].join(",");
+    var celdas = "";
+    for (var i = 0; i < 5; i++) {
+      celdas += c[2].indexOf(i) >= 0
+        ? '<td class="hit">●</td>'
+        : '<td class="miss">·</td>';
+    }
+    tr.innerHTML = '<td class="comp-code">' + c[0] + "</td><td>" + c[1] + "</td>" + celdas;
+    tbody.appendChild(tr);
+  });
+
+  var botones = document.querySelectorAll("#filtros-comp button");
+  botones.forEach(function(b){
+    b.addEventListener("click", function(){
+      var col = parseInt(b.dataset.col, 10);
+      botones.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      tbody.querySelectorAll("tr").forEach(function(tr){
+        if (col < 0) { tr.classList.remove("dim"); return; }
+        var cols = tr.dataset.cols ? tr.dataset.cols.split(",") : [];
+        tr.classList.toggle("dim", cols.indexOf(String(col)) < 0);
+      });
+    });
+  });
+
+  /* ---------- índice activo ---------- */
+  var enlaces = Array.prototype.slice.call(document.querySelectorAll("nav.toc a"));
+  var secciones = enlaces.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = secciones.indexOf(e.target);
+        if (i < 0) return;
+        enlaces.forEach(function(a, j){ a.classList.toggle("on", i === j); });
+      });
+    }, {rootMargin:"-15% 0px -75% 0px"});
+    secciones.forEach(function(s){ if (s) obs.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>

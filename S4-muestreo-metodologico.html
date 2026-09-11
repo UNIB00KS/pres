@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 4 · Muestreo metodológico para epistemología aplicada — Filosofía y conocimiento (26311M9)</title>
+<meta name="description" content="Quince opciones metodológicas para trabajar epistemología aplicada en un curso de madurez del Grado en Filosofía, con formato, duración, competencias activadas, criterio de evaluación y planificador de cobertura.">
+<meta name="author" content="Miguel Moreno Muñoz">
+<style>
+:root{
+  --bg:#fbfaf7; --bg-alt:#f2efe9; --card:#ffffff; --ink:#1d1f21; --ink-soft:#4a4f55;
+  --line:#ddd8ce; --accent:#7b3f00; --accent-soft:#a8672a; --accent-bg:#f6ecdf;
+  --ok:#2f6f4f; --ok-bg:#e6f1ea; --warn:#8a5a00; --warn-bg:#fbf0d9; --risk:#8f2f2f; --risk-bg:#f8e6e6;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 6px 18px rgba(0,0,0,.05);
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#15171a; --bg-alt:#1c1f23; --card:#1e2226; --ink:#e8e6e1; --ink-soft:#a8adb4;
+    --line:#333940; --accent:#e0a266; --accent-soft:#c9884a; --accent-bg:#2a221a;
+    --ok:#7fc4a0; --ok-bg:#1c2a23; --warn:#e0b662; --warn-bg:#2b2517; --risk:#e08a8a; --risk-bg:#2c1c1c;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:74rem;margin:0 auto;padding:0 1.25rem 5rem}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.22;font-weight:600}
+h1{font-size:2.05rem;margin:0 0 .35rem}
+h2{font-size:1.55rem;margin:3rem 0 .6rem;padding-bottom:.35rem;border-bottom:2px solid var(--line)}
+h3{font-size:1.2rem;margin:1.9rem 0 .4rem}
+h4{font-size:1.02rem;margin:1.2rem 0 .3rem;font-family:var(--sans);font-weight:700}
+p{margin:.65rem 0}
+a{color:var(--accent);text-underline-offset:2px}
+small{color:var(--ink-soft)}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg-alt);padding:.08em .35em;border-radius:4px;border:1px solid var(--line)}
+
+header.masthead{background:var(--bg-alt);border-bottom:1px solid var(--line);padding:2.4rem 0 1.8rem}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft);margin:0 0 .5rem}
+.subtitle{color:var(--ink-soft);font-size:1.05rem;margin:.4rem 0 1rem;max-width:56rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
+.chip{font-family:var(--mono);font-size:.72rem;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.2rem .65rem;color:var(--ink-soft)}
+
+nav.toc{position:sticky;top:0;z-index:20;background:var(--bg);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:.5rem 0}
+nav.toc ol{display:flex;flex-wrap:wrap;gap:.15rem;list-style:none;margin:0 auto;padding:0 1.25rem;max-width:74rem}
+nav.toc a{display:block;font-size:.79rem;padding:.28rem .6rem;border-radius:6px;text-decoration:none;color:var(--ink-soft)}
+nav.toc a:hover{background:var(--accent-bg);color:var(--accent)}
+nav.toc a.on{background:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){nav.toc a.on{color:#15171a}}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.15rem 1.3rem;box-shadow:var(--shadow);margin:1rem 0}
+.callout{border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:1.1rem 0}
+.callout.ok{border-color:var(--ok);background:var(--ok-bg)}
+.callout.warn{border-color:var(--warn);background:var(--warn-bg)}
+.callout.risk{border-color:var(--risk);background:var(--risk-bg)}
+.callout > :first-child{margin-top:0}
+.callout > :last-child{margin-bottom:0}
+.lede{font-size:1.07rem;color:var(--ink-soft);max-width:56rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(21rem,1fr));gap:1rem}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.9rem}
+
+.tablewrap{overflow-x:auto;margin:1rem 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--bg-alt);font-size:.76rem;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+tbody tr:last-child td{border-bottom:none}
+
+/* ---------- fichas de método ---------- */
+.met{border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:var(--shadow);margin:.9rem 0;overflow:hidden}
+.met.oculto{display:none}
+.met > summary{cursor:pointer;list-style:none;padding:.85rem 1.05rem;display:flex;gap:.8rem;align-items:flex-start}
+.met > summary::-webkit-details-marker{display:none}
+.met > summary::after{content:"▸";margin-left:auto;color:var(--accent-soft);transition:transform .15s;flex:none}
+.met[open] > summary::after{transform:rotate(90deg)}
+.met > summary:hover{background:var(--accent-bg)}
+.met .n{font-family:var(--mono);font-size:.72rem;background:var(--accent);color:#fff;border-radius:5px;padding:.15rem .45rem;flex:none;margin-top:.15rem}
+@media (prefers-color-scheme:dark){.met .n{color:#15171a}}
+.met .cab{flex:1}
+.met .tit{font-family:var(--serif);font-size:1.08rem;font-weight:600;display:block}
+.met .meta{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.35rem}
+.tag{font-family:var(--mono);font-size:.67rem;border:1px solid var(--line);border-radius:5px;padding:.12rem .42rem;color:var(--ink-soft);background:var(--bg-alt);white-space:nowrap}
+.tag.niv3{border-color:var(--risk);color:var(--risk)}
+.tag.niv2{border-color:var(--warn);color:var(--warn)}
+.tag.niv1{border-color:var(--ok);color:var(--ok)}
+.met .body{padding:.1rem 1.05rem 1rem;border-top:1px solid var(--line)}
+.rot{font-family:var(--sans);font-size:.71rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-soft);font-weight:700;margin:.95rem 0 .15rem}
+.rot:first-child{margin-top:.85rem}
+.comp{font-family:var(--mono);font-size:.7rem;color:var(--accent);background:var(--accent-bg);border:1px solid var(--accent-soft);border-radius:4px;padding:.08rem .35rem;margin-right:.2rem;white-space:nowrap;display:inline-block;margin-bottom:.15rem}
+.sel-met{margin-top:.7rem;display:flex;align-items:center;gap:.5rem;font-size:.85rem}
+
+.controls{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:1rem 0}
+button.pill{font:inherit;font-size:.78rem;padding:.28rem .7rem;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
+button.pill:hover{border-color:var(--accent-soft)}
+button.pill[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+@media (prefers-color-scheme:dark){button.pill[aria-pressed=true]{color:#15171a}}
+button.act{font:inherit;font-size:.85rem;padding:.4rem .9rem;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer}
+button.act:hover{border-color:var(--accent-soft);color:var(--accent)}
+#contador{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft)}
+
+#panel{position:sticky;bottom:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.75rem 1rem;box-shadow:var(--shadow);margin-top:1.2rem;font-size:.88rem;z-index:15}
+#panel .barra{height:9px;background:var(--bg-alt);border:1px solid var(--line);border-radius:99px;overflow:hidden;margin:.4rem 0 .3rem}
+#panel .barra > i{display:block;height:100%;background:var(--accent-soft)}
+#panel .faltan{font-size:.8rem;color:var(--ink-soft)}
+input[type=checkbox]{accent-color:var(--accent);width:1.05rem;height:1.05rem}
+
+footer{margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink-soft)}
+
+@media print{
+  nav.toc,.controls,button,#panel,.sel-met{display:none!important}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .card,.met,.tablewrap{box-shadow:none;break-inside:avoid}
+  .met .body{display:block!important}
+  .met.oculto{display:block!important}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Filosofía y conocimiento · 26311M9 · Parte I, sesión 4</p>
+    <h1>Quince maneras de trabajar epistemología aplicada en un curso de madurez</h1>
+    <p class="subtitle">Muestreo metodológico para elegir las tareas individuales y de taller: qué producto genera cada una, qué competencia entrena de verdad, cuánto cuesta en tiempo de aula y de corrección, y cuándo <strong>no</strong> conviene usarla.</p>
+    <div class="meta-row">
+      <span class="chip">15 métodos</span>
+      <span class="chip">Filtros + planificador</span>
+      <span class="chip">3 talleres × 10</span>
+      <span class="chip">Códigos CG/CE/CT y MD oficiales</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Índice">
+  <ol>
+    <li><a href="#nivel">1 · Qué hace avanzada a una actividad</a></li>
+    <li><a href="#catalogo">2 · El catálogo</a></li>
+    <li><a href="#planificador">3 · Planificador</a></li>
+    <li><a href="#combinacion">4 · Combinación propuesta</a></li>
+    <li><a href="#evaluar">5 · Evaluar sin corregir cien folios</a></li>
+  </ol>
+</nav>
+
+<div class="wrap">
+
+<h2 id="nivel">1 · Qué hace que una actividad sea de cuarto curso y no de primero</h2>
+
+<p class="lede">La diferencia no está en la dificultad del texto ni en la extensión del trabajo. Está en cinco rasgos, y una actividad que no tenga al menos tres de ellos es un ejercicio de comprensión lectora con bibliografía difícil.</p>
+
+<div class="grid3">
+<div class="card"><h4>1. Incertidumbre irreducible</h4><p>El caso no tiene solución conocida, o la tiene y no está disponible durante la tarea. Si el docente sabe la respuesta y la actividad consiste en llegar a ella, no se entrena juicio: se entrena adivinación de expectativas.</p></div>
+<div class="card"><h4>2. Obligación de declarar el criterio</h4><p>No basta con concluir: hay que decir <strong>con qué criterio</strong> se ha concluido y qué habría llevado a concluir lo contrario. Es lo único que distingue el análisis de la preferencia bien redactada.</p></div>
+<div class="card"><h4>3. Producto auditable por un par</h4><p>Otro estudiante, con el mismo material, tiene que poder comprobar el trabajo y encontrar el fallo si lo hay. Esto excluye el ensayo de opinión y obliga a la trazabilidad.</p></div>
+<div class="card"><h4>4. Coste del error visible</h4><p>Equivocarse tiene consecuencia dentro de la actividad —la auditoría lo detecta, el grupo contrario lo usa, la predicción se abre al final—. Sin coste, la calibración no se entrena.</p></div>
+<div class="card"><h4>5. Transferencia sin etiqueta</h4><p>El material llega sin decir qué concepto lo explica. Reconocer que <em>esto</em> es un caso de ignorancia hermenéutica voluntaria es la competencia; aplicar el concepto una vez señalado, no.</p></div>
+<div class="card"><h4>El contraste</h4><p>«Comentario del texto de Rauch, capítulos 1-3» tiene el rasgo 2 si se pide explícitamente, y ninguno de los otros cuatro. «Auditar la cadena de citas de tres afirmaciones del texto de Rauch» los tiene los cinco, y usa el mismo texto.</p></div>
+</div>
+
+<div class="callout">
+<p><strong>Nota sobre los códigos.</strong> Cada ficha declara las competencias de la guía docente que activa <em>de verdad</em> —las que un evaluador podría constatar en el producto entregado— y no la lista larga de las que podrían invocarse. También el método docente oficial correspondiente: <code>MD02</code> discusión-debate, <code>MD03</code> resolución de casos, <code>MD04</code> prácticas de informática, <code>MD05</code> seminarios, <code>MD06</code> simulaciones, <code>MD07</code> análisis de fuentes, <code>MD08</code> trabajos grupales, <code>MD09</code> trabajos individuales.</p>
+</div>
+
+<h2 id="catalogo">2 · El catálogo</h2>
+
+<div class="controls" id="filtros">
+  <span style="font-size:.85rem;color:var(--ink-soft)">Formato:</span>
+  <button class="pill" data-tipo="formato" data-f="todos" aria-pressed="true">Todos</button>
+  <button class="pill" data-tipo="formato" data-f="individual" aria-pressed="false">Individual</button>
+  <button class="pill" data-tipo="formato" data-f="pareja" aria-pressed="false">Pareja</button>
+  <button class="pill" data-tipo="formato" data-f="taller" aria-pressed="false">Taller</button>
+  <button class="pill" data-tipo="formato" data-f="aula" aria-pressed="false">Aula entera</button>
+  <span id="contador"></span>
+</div>
+<div class="controls">
+  <button class="act" id="abrir">Abrir todo</button>
+  <button class="act" id="cerrar">Cerrar todo</button>
+  <button class="act" onclick="window.print()">Imprimir</button>
+</div>
+
+<div id="catalogo-cont"></div>
+
+<div id="panel">
+  <div><strong>Plan seleccionado:</strong> <span id="p-n">0 métodos</span> · <span id="p-h">0 h</span> de aula</div>
+  <div class="barra"><i id="p-bar" style="width:0%"></i></div>
+  <div class="faltan" id="p-falta">Marca métodos en el catálogo para ver la cobertura de competencias.</div>
+</div>
+
+<h2 id="planificador">3 · Cómo leer el planificador</h2>
+
+<div class="grid2">
+<div class="card">
+<h4>Qué mide la barra</h4>
+<p>El porcentaje de las <strong>competencias declaradas en la guía docente que quedan cubiertas</strong> por los métodos que has marcado, sobre el conjunto de las que esta asignatura puede razonablemente desarrollar. No incluye CT20 ni CT19, que la materia apenas activa: contarlas inflaría el resultado sin corresponder a nada.</p>
+</div>
+<div class="card">
+<h4>Qué no mide</h4>
+<p>Ni la carga de corrección ni la calidad de la ejecución. Un plan con cobertura del 95&nbsp;% y quince métodos distintos es <strong>peor</strong> que uno del 80&nbsp;% con cinco bien ejecutados: la dispersión metodológica confunde al estudiante y multiplica el tiempo de explicación de formatos, que se resta del tiempo de contenido.</p>
+</div>
+</div>
+
+<div class="callout warn">
+<p><strong>Regla práctica.</strong> Con treinta estudiantes y un cuatrimestre, <strong>tres formatos bien rodados</strong> —uno individual, uno de taller y uno de aula— cubren el 80&nbsp;% de lo cubrible. Los demás métodos del catálogo son variantes que conviene tener a mano para sustituir uno que no funcione con este grupo, no una lista de deberes.</p>
+</div>
+
+<h2 id="combinacion">4 · Una combinación propuesta para este curso</h2>
+
+<p>Tres talleres de diez, evaluación 40 / 40 / 20, temas 7 y 8 fuera. La propuesta usa cinco métodos, tres de ellos en el bloque del 40&nbsp;% de exposiciones y talleres.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th style="width:8rem">Bloque</th><th style="width:12rem">Método</th><th>Producto y por qué ahí</th><th style="width:6rem">Peso</th></tr></thead>
+<tbody>
+<tr><td>Individual</td><td><strong>Exposición con auditoría de citas</strong> (método 1)</td><td>Cada estudiante expone un texto de la bibliografía fundamental <em>y</em> entrega la traza de una de sus afirmaciones hasta la fuente primaria. Convierte la exposición en una prueba de procedimiento, no de resumen, sin cambiar el formato al que la guía obliga.</td><td>≈ 20 %</td></tr>
+<tr><td>Taller</td><td><strong>Dosier con traza de autoría</strong> (método 13)</td><td>El producto que la guía docente ya prevé, con la corrección que hace evaluable la aportación individual dentro de diez personas.</td><td>≈ 15 %</td></tr>
+<tr><td>Taller</td><td><strong>Auditoría cruzada entre grupos</strong> (método 14)</td><td>Cada grupo audita el dosier de otro con protocolo fijo. Es el método que más rinde por hora invertida: se evalúa la calidad de la auditoría, y esa calidad revela si el auditor entendió el material mejor que el auditado.</td><td>≈ 5 %</td></tr>
+<tr><td>Aula</td><td><strong>Registro de predicciones</strong> (método 7)</td><td>Se abre en la última sesión. Cuesta diez minutos al principio y diez al final, y es lo único de todo el cuatrimestre que <strong>mide</strong> algo del estudiante en lugar de valorarlo.</td><td>dentro del 20 %</td></tr>
+<tr><td>Aula</td><td><strong>Simulación de comité asesor</strong> (método 5)</td><td>Una sesión, cerca del final, sobre un caso del capítulo 3 o 4. Es donde convergen todas las nociones del curso bajo plazo y presión, y donde se ve quién ha aprendido a decidir con evidencia incompleta.</td><td>dentro del 20 %</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout ok">
+<p><strong>Por qué esta combinación y no otra.</strong> Cubre las tres operaciones epistémicas distintas —responsabilidad individual, producción colectiva, juicio bajo incertidumbre— con <strong>un solo formato nuevo que explicar</strong> por bloque; reutiliza los productos entre sí, de modo que el dosier de taller alimenta la auditoría cruzada y la simulación usa los dosieres como material; y deja el 20&nbsp;% de participación anclado a dos actividades con producto observable, en lugar de a la impresión del docente sobre quién habló más.</p>
+</div>
+
+<h2 id="evaluar">5 · Evaluar sin corregir cien folios</h2>
+
+<div class="grid2">
+<div class="card">
+<h4>El principio</h4>
+<p>En todos los métodos del catálogo, <strong>lo evaluable es el procedimiento declarado, no la conclusión alcanzada</strong>. Eso permite calificar un trabajo cuya conclusión no compartes y suspender uno cuya conclusión es correcta pero llegó por casualidad —que es, literalmente, la lección de Gettier aplicada a la evaluación—.</p>
+</div>
+<div class="card">
+<h4>Los cuatro indicadores que bastan</h4>
+<ol>
+<li><strong>Trazabilidad</strong>: ¿puedo llegar desde cada afirmación a su fuente sin preguntar?</li>
+<li><strong>Criterio declarado</strong>: ¿dice con qué regla eligió y qué le haría cambiar?</li>
+<li><strong>Tratamiento de lo adverso</strong>: ¿aparece la mejor objeción, o solo las fáciles?</li>
+<li><strong>Calibración</strong>: ¿el grado de seguridad de las afirmaciones se corresponde con el respaldo que tienen?</li>
+</ol>
+</div>
+<div class="card">
+<h4>Lo que ahorra tiempo de verdad</h4>
+<p>Pedir <strong>productos cortos y verificables</strong> en lugar de largos y valorativos. Una nota de replicación de dos páginas con veredicto se corrige en cinco minutos y discrimina mejor que un ensayo de diez. La longitud es enemiga de la evaluación fina, no su garantía.</p>
+</div>
+<div class="card">
+<h4>El correctivo de equidad</h4>
+<p>Todo método que dependa de hablar en público reparte nota por temperamento además de por trabajo. Compensarlo cuesta poco: admitir la <strong>aportación escrita</strong> con el mismo valor, y asignar por turnos el rol de contradictor para que intervenga quien no lo haría. La asignatura dedica un apartado a la injusticia testimonial; conviene no reproducirla en la hoja de calificaciones.</p>
+</div>
+</div>
+
+<footer>
+<p><strong>Filosofía y conocimiento</strong> (26311M9), 4.º del Grado en Filosofía, Universidad de Granada · Parte I, sesión 4.<br>
+Los códigos de competencias y de métodos docentes proceden de la guía docente oficial de la asignatura. Los anclajes de material remiten a la monografía técnica <em>Filosofía y conocimiento</em> (v.6), <a href="https://fcon2026.netlify.app/">fcon2026.netlify.app</a>.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var METODOS = [
+    {
+      t:"Auditoría de cadena de citas",
+      formato:"individual", dur:"2 h fuera de aula + 10 min de puesta en común", niv:2,
+      md:"MD07 · MD09",
+      comp:["CG03","CG15","CE05","CT04","CT05","CT13"],
+      q:"Se toma una afirmación concreta de un texto —de la bibliografía fundamental, de la propia monografía o de un artículo de prensa— y se rastrea hasta la fuente primaria: ¿existe el documento citado?, ¿dice lo que se le atribuye?, ¿el DOI corresponde a ese trabajo?, ¿la paginación cuadra?",
+      prod:"Nota de trazabilidad de una página: afirmación, cadena de fuentes recorrida, veredicto y evidencia del veredicto.",
+      ancla:"El apartado de método y criterios editoriales del prefacio declara los criterios; el capítulo 4 aporta el aparato sobre revisión por pares y retractaciones.",
+      evalua:"Que la cadena sea reproducible por otra persona con la nota en la mano. Un veredicto de «correcto» vale exactamente lo mismo que uno de «no localizado» si está igual de documentado.",
+      riesgo:"Si se asignan afirmaciones al azar, la mitad del grupo encontrará casos triviales. Conviene tener preparadas veinte afirmaciones de dificultad graduada, con algunas problemáticas conocidas."
+    },
+    {
+      t:"Reconstrucción de cronología decisional",
+      formato:"taller", dur:"3-4 h de grupo + 20 min de exposición", niv:3,
+      md:"MD03 · MD07 · MD08",
+      comp:["CG06","CG08","CE07","CE13","CT01","CT07","CT18"],
+      q:"Sobre un episodio de gestión de riesgo —una inundación, un incendio, una alerta sanitaria— se reconstruye a tres columnas: qué información existía y desde cuándo, quién tenía competencia para actuar, y qué decisión concreta dependía de esa información. La regla del ejercicio es que <strong>no se evalúan responsabilidades políticas</strong>: se evalúan trayectorias de información.",
+      prod:"Línea de tiempo documentada, con una columna explícita de «información disponible» separada de «decisión adoptada», y una lista de los puntos donde ambas se desacoplan.",
+      ancla:"Capítulo 1, bloque de competencias administrativas y cauces urbanos; capítulo 2 §2.2 sobre la asimetría entre consenso técnico y debate social.",
+      evalua:"Que cada celda de la columna de información lleve fuente y fecha, y que el grupo señale al menos un punto donde la información existía y no llegó, distinguiéndolo de los puntos donde no existía.",
+      riesgo:"Se politiza en veinte minutos si la regla no se sostiene con firmeza. Es el método con mayor rendimiento y mayor exigencia de conducción."
+    },
+    {
+      t:"Análisis del repertorio de la duda",
+      formato:"pareja", dur:"3 h fuera de aula", niv:2,
+      md:"MD07 · MD09",
+      comp:["CG03","CG04","CE07","CE25","CT01","CT10"],
+      q:"Se toma un corpus acotado —hilos de una red, columnas de opinión, comunicados de un sector— y se identifican en él los movimientos del repertorio documentado por la literatura sobre fabricación de incertidumbre: exagerar el desacuerdo residual, exigir certeza absoluta antes de actuar, financiar la contra-investigación, atacar al mensajero, invocar la libertad de elección.",
+      prod:"Fichas de movimiento: cita literal, movimiento identificado, y por qué esa cita y no otra lo ejemplifica.",
+      ancla:"Capítulo 2 §uso tóxico de la epistemología, y el bloque «el repertorio, reunido».",
+      evalua:"Que ante una cita ambigua la pareja argumente por qué la clasifica así, en lugar de forzarla. El ejercicio se corrompe si todo encaja: hay que exigir una sección de «citas que no clasificamos».",
+      riesgo:"Entrena a ver el repertorio en el adversario y no en el propio bando. El correctivo obligatorio es que una de las dos fichas proceda de un corpus con el que la pareja simpatiza."
+    },
+    {
+      t:"Debate con inversión de posiciones",
+      formato:"aula", dur:"1 sesión (60-90 min)", niv:2,
+      md:"MD02 · MD08",
+      comp:["CG10","CG19","CE03","CE15","CT09","CT10","CT12","CT15"],
+      q:"Cada grupo prepara la posición que ha elegido y, veinticuatro horas antes del debate, se le comunica que defenderá <strong>la contraria</strong>. El material preparado no se pierde: se le entrega al grupo rival.",
+      prod:"Acta breve por grupo con la mejor objeción recibida y la respuesta que pudo darle, más una línea sobre qué cambió en su propia posición.",
+      ancla:"Cualquier bloque marcado como «controversia abierta» en el índice de destacados.",
+      evalua:"La calidad de la reconstrucción de la posición ajena, no la victoria. Se puntúa alto quien formula la versión más fuerte del argumento contrario, aunque después no logre refutarla.",
+      riesgo:"Con grupos muy polarizados, el ejercicio puede vivirse como una imposición. Anunciar la mecánica desde el primer día lo neutraliza."
+    },
+    {
+      t:"Simulación de comité asesor",
+      formato:"aula", dur:"1 sesión completa + 1 h de preparación", niv:3,
+      md:"MD06 · MD02",
+      comp:["CG06","CG08","CG10","CG12","CE13","CE15","CT07","CT08","CT12"],
+      q:"El aula se constituye en comité que debe emitir una recomendación sobre un caso real con <strong>evidencia incompleta, plazo cerrado y partes interesadas</strong> que comparecen. Cada participante recibe un rol con información parcial que los demás no tienen. La recomendación debe declarar su grado de confianza y admite voto particular, que es obligatorio si alguien discrepa.",
+      prod:"Dictamen de una página con nivel de confianza declarado, condiciones que lo revisarían, y voto particular si lo hay.",
+      ancla:"Casos del capítulo 3 (consenso e implicaciones sociales) o del 4 (integridad y conflictos de interés).",
+      evalua:"Que el dictamen distinga lo que el comité sabe de lo que supone, y que el grado de confianza sea coherente con la evidencia que el propio dictamen cita.",
+      riesgo:"Requiere preparar los roles y la información asimétrica, que es donde está el trabajo. Sin asimetría de información no es una simulación: es un debate con disfraces."
+    },
+    {
+      t:"Estudio de caso con protocolo de cierre",
+      formato:"individual", dur:"2-3 h fuera de aula + 8 min de presentación", niv:2,
+      md:"MD03 · MD09",
+      comp:["CG06","CG07","CE07","CE13","CT01","CT18"],
+      q:"El caso no se narra: se cierra respondiendo un cuestionario fijo. Qué información faltaba en el momento de decidir; qué habría cambiado de haberla tenido; quién soportaba la carga de la prueba y si la aceptó; qué procedimiento de corrección existía y si se activó; qué consecuencia tuvo activarlo.",
+      prod:"Ficha de caso de dos páginas con las cinco respuestas y sus fuentes.",
+      ancla:"El índice de casos de la monografía, con más de treinta ejemplos ya documentados.",
+      evalua:"Las respuestas 1 y 5 son las discriminantes. Quien solo sabe narrar el caso responde bien la 2 y falla las otras cuatro.",
+      riesgo:"El protocolo fijo puede volverse rutinario si se repite muchas veces. Funciona bien dos o tres veces por cuatrimestre, no diez."
+    },
+    {
+      t:"Registro de predicciones y apertura final",
+      formato:"aula", dur:"10 min al inicio + 30 min en la última sesión", niv:1,
+      md:"MD09",
+      comp:["CG19","CE13","CT09","CT10","CT17"],
+      q:"En la segunda semana, cada estudiante registra cinco predicciones concretas y fechadas sobre asuntos del temario —resultados de un proceso en curso, decisiones institucionales pendientes, evolución de una controversia— con su grado de confianza. El registro se sella y se abre en la última sesión.",
+      prod:"Registro individual + análisis final de dos párrafos: en qué fallé, con cuánta seguridad fallé, y qué tipo de error fue.",
+      ancla:"El eje del capítulo 1 sobre detección de errores; la cronología de la sesión 3 como fuente de asuntos predecibles.",
+      evalua:"No se evalúa el acierto —eso premiaría la prudencia— sino <strong>la calidad del análisis del fallo</strong> y la coherencia entre confianza declarada y acierto obtenido.",
+      riesgo:"Ninguno relevante. Es el método más barato del catálogo y el único que produce un dato longitudinal sobre el propio grupo."
+    },
+    {
+      t:"Replicación documental de una cifra",
+      formato:"pareja", dur:"2-3 h fuera de aula", niv:3,
+      md:"MD04 · MD07",
+      comp:["CG15","CE05","CT03","CT04","CT05","CT13"],
+      q:"Se toma una tabla o una cifra publicada —en un informe, en un artículo, en la propia monografía— y se intenta reconstruirla a partir de la fuente que declara. ¿Sale el mismo número? ¿La fuente contiene lo que la tabla dice que contiene? ¿La unidad es la misma, o se han tomado cuotas de reparto por tasas?",
+      prod:"Nota de replicación: procedimiento seguido, resultado obtenido, discrepancia si la hay y su magnitud.",
+      ancla:"El capítulo 2 contiene un episodio real de este tipo ya documentado en la propia edición del libro, con un error de orden de magnitud nacido de confundir dos unidades.",
+      evalua:"Que el procedimiento esté descrito con detalle suficiente para que un tercero lo repita y obtenga lo mismo.",
+      riesgo:"Frustra si la fuente no es accesible. Hay que verificar previamente que cada cifra asignada es replicable con recursos abiertos."
+    },
+    {
+      t:"Mapa de controversia",
+      formato:"taller", dur:"4-5 h de grupo", niv:3,
+      md:"MD07 · MD08",
+      comp:["CG06","CG15","CE07","CE13","CE25","CT01","CT05","CT11"],
+      q:"Cartografía de una controversia viva: qué actores intervienen, qué afirma cada uno, con qué evidencia, con qué financiación, y qué relaciones hay entre ellos. No se busca decidir quién tiene razón, sino <strong>hacer visible la estructura del desacuerdo</strong> y localizar dónde exactamente se bifurca.",
+      prod:"Mapa (diagrama o tabla de actores) más una memoria metodológica que declare qué se incluyó, qué se dejó fuera y con qué criterio.",
+      ancla:"Cualquiera de los cinco temas de taller; especialmente clima y sostenibilidad (cap. 3) y robótica e IA (caps. 4 y 6).",
+      evalua:"La memoria metodológica pesa tanto como el mapa. Un mapa sin criterio de inclusión declarado es una opinión con formato de infografía.",
+      riesgo:"Tiende a crecer sin límite. Hay que acotar el corpus por fecha y por número de actores desde el principio."
+    },
+    {
+      t:"Colaboración adversarial",
+      formato:"pareja", dur:"4 h repartidas + tutoría", niv:3,
+      md:"MD05 · MD09",
+      comp:["CG03","CG10","CG12","CG19","CE03","CE15","CT10","CT12"],
+      q:"Dos estudiantes que discrepan sobre un asunto escriben <strong>un solo texto que ambos firman</strong>. El texto declara: en qué están de acuerdo, en qué no, por qué creen que discrepan, y qué evidencia concreta zanjaría la discrepancia. No se permite el «por un lado… por otro lado»: hay que decir de quién es cada posición.",
+      prod:"Documento conjunto de tres a cuatro páginas con las cuatro secciones obligatorias.",
+      ancla:"Los bloques de «controversia abierta»; el capítulo 1 sobre desacuerdo entre pares.",
+      evalua:"La sección que discrimina es la cuarta. Identificar qué evidencia zanjaría el desacuerdo exige haber entendido la posición del otro mejor de lo que suele hacerse.",
+      riesgo:"Si la pareja no discrepa de verdad, el ejercicio es vacío. Conviene formar las parejas a partir de los resultados del test de calibración de la sesión 2, donde el desacuerdo real ya está documentado."
+    },
+    {
+      t:"Auditoría de un sistema de IA como fuente",
+      formato:"pareja", dur:"2-3 h con ordenador", niv:2,
+      md:"MD04 · MD07",
+      comp:["CG15","CE05","CT03","CT06","CT10","CT13"],
+      q:"Se plantea la misma pregunta a varios asistentes conversacionales y se varía la formulación de forma controlada. Después se verifican una a una las referencias que devuelven: ¿existen?, ¿dicen lo que se les atribuye?, ¿el DOI corresponde? El objeto de estudio no es la respuesta sino <strong>la estabilidad de la respuesta y la verificabilidad de su respaldo</strong>.",
+      prod:"Informe con el protocolo exacto —prompts literales, fecha, versión del servicio— y una tabla de referencias devueltas con su veredicto de verificación.",
+      ancla:"El apartado sobre servicios de IA generativa en talleres y prácticas; el bloque del capítulo 4 sobre agentes de IA en el ciclo de investigación.",
+      evalua:"Que el protocolo permita repetir el experimento. Sin prompts literales y fecha, el informe no es replicable y no vale como evidencia de nada.",
+      riesgo:"Envejece rápido: los servicios cambian de versión. Es una virtud pedagógica —enseña que la fuente no es estable— si se declara, y un defecto si se pretende extraer una conclusión general."
+    },
+    {
+      t:"Entrevista con guion epistémico",
+      formato:"individual", dur:"1 h de entrevista + 2 h de preparación y análisis", niv:2,
+      md:"MD07 · MD09",
+      comp:["CG11","CG15","CG18","CE05","CE07","CT15","CT17"],
+      q:"Entrevista a alguien con experticia en un campo —dentro o fuera de la universidad— con un guion que no pregunta por el contenido sino por el <strong>procedimiento</strong>: cómo sabe lo que sabe, qué le haría cambiar de opinión, qué se ha retractado en su campo en los últimos años, cómo se entera de que se ha equivocado, qué pasa cuando eso ocurre.",
+      prod:"Transcripción de los pasajes relevantes más un análisis que sitúe las respuestas en las categorías del capítulo 1.",
+      ancla:"Capítulo 1 §testimonio y grados de experticia; capítulo 4 §integridad.",
+      evalua:"Que el análisis no se limite a parafrasear al entrevistado. La pregunta útil es qué revela la respuesta sobre el procedimiento de corrección del campo, incluso cuando el entrevistado no lo formula.",
+      riesgo:"Depende de conseguir la entrevista. Conviene tener una lista de personas dispuestas antes de proponerlo."
+    },
+    {
+      t:"Dosier de taller con traza de autoría",
+      formato:"taller", dur:"todo el cuatrimestre", niv:2,
+      md:"MD08 · MD07",
+      comp:["CG12","CG13","CG15","CE05","CT02","CT05","CT11","CT16"],
+      q:"El producto que la guía docente ya prevé, con una corrección: cada fuente incorporada lleva las iniciales de quien la localizó y verificó, y el dosier incluye un apartado final de <strong>desacuerdos internos no resueltos</strong>.",
+      prod:"Dosier documental con trazabilidad individual y sección de desacuerdos.",
+      ancla:"La bibliografía complementaria de la monografía está pensada explícitamente para alimentar dosieres de grupo.",
+      evalua:"El apartado de desacuerdos es el que más informa. Un dosier sin desacuerdos internos en un grupo de diez personas indica que alguien cerró la discusión antes de tiempo, o que nueve no participaron.",
+      riesgo:"Con diez integrantes, el parasitismo deja de ser detectable a simple vista. La traza de autoría es la contramedida, y hay que anunciarla al formar los grupos, no después."
+    },
+    {
+      t:"Auditoría cruzada entre grupos",
+      formato:"taller", dur:"2 h de grupo + 20 min de réplica en aula", niv:3,
+      md:"MD08 · MD02",
+      comp:["CG03","CG10","CG19","CE05","CE15","CT10","CT12","CT16"],
+      q:"Cada grupo audita el dosier de otro con un protocolo fijo: verificar tres fuentes al azar, localizar la afirmación peor respaldada, señalar la objeción que el dosier no considera y proponer la fuente que faltaba. El grupo auditado dispone de réplica.",
+      prod:"Informe de auditoría de dos páginas y réplica de una.",
+      ancla:"El propio material de los talleres.",
+      evalua:"<strong>Se evalúa la auditoría, no el dosier auditado.</strong> Una auditoría que encuentra un fallo real y lo documenta vale más que un dosier impecable, porque exige haber entendido el material ajeno mejor que quien lo escribió.",
+      riesgo:"Puede generar fricción entre grupos. Se desactiva evaluando la auditoría por su calidad técnica y no por la severidad, y dando siempre derecho de réplica."
+    },
+    {
+      t:"Clínica de errores propios",
+      formato:"aula", dur:"45 min, una vez avanzado el curso", niv:1,
+      md:"MD02 · MD05",
+      comp:["CG19","CE13","CT09","CT10","CT17"],
+      q:"Sesión en la que cada estudiante presenta —voluntariamente y sin nota— <strong>un error propio del cuatrimestre</strong>: una afirmación que sostuvo y tuvo que retirar, una fuente que dio por buena, una predicción fallida. El docente abre presentando uno suyo, y no es un gesto simbólico: sin ese primer ejemplo, nadie habla.",
+      prod:"Ninguno evaluable. Es un método de clima, no de calificación.",
+      ancla:"El eje del capítulo 1: qué ocurre cuando se detecta el error, aplicado al propio aula.",
+      evalua:"No se evalúa. Convertirlo en nota lo destruye.",
+      riesgo:"Fracasa por completo si el grupo no tiene confianza, y en ese caso conviene no forzarlo. Funciona mejor en la segunda mitad del cuatrimestre."
+    }
+  ];
+
+  var ETIQ_FORM = {individual:"Individual", pareja:"Pareja", taller:"Taller", aula:"Aula entera"};
+  // universo de competencias razonablemente desarrollables en esta materia
+  var UNIVERSO = ["CG01","CG02","CG03","CG04","CG05","CG06","CG07","CG08","CG10","CG11","CG12","CG13","CG15","CG18","CG19",
+                  "CE03","CE05","CE07","CE08","CE13","CE15","CE25",
+                  "CT01","CT02","CT03","CT04","CT05","CT06","CT07","CT08","CT09","CT10","CT11","CT12","CT13","CT15","CT16","CT17","CT18"];
+  var HORAS = [2,4,3,1.5,3,3,0.7,3,5,4,3,3,6,2.5,0.75];
+
+  var cont = document.getElementById("catalogo-cont");
+  METODOS.forEach(function(m, i){
+    var d = document.createElement("details");
+    d.className = "met";
+    d.dataset.formato = m.formato;
+    d.innerHTML =
+      '<summary><span class="n">' + String(i+1).padStart(2,"0") + '</span><span class="cab"><span class="tit">' + m.t + '</span>' +
+      '<span class="meta"><span class="tag">' + ETIQ_FORM[m.formato] + '</span><span class="tag">' + m.dur + '</span>' +
+      '<span class="tag niv' + m.niv + '">exigencia ' + m.niv + '/3</span><span class="tag">' + m.md + '</span></span></span></summary>' +
+      '<div class="body">' +
+      '<p class="rot">En qué consiste</p><p>' + m.q + '</p>' +
+      '<p class="rot">Producto entregable</p><p>' + m.prod + '</p>' +
+      '<p class="rot">Material del libro</p><p>' + m.ancla + '</p>' +
+      '<p class="rot">Qué se evalúa</p><p>' + m.evalua + '</p>' +
+      '<p class="rot">Cuándo falla</p><p>' + m.riesgo + '</p>' +
+      '<p class="rot">Competencias que activa de forma constatable</p><p>' + m.comp.map(function(c){ return '<span class="comp">' + c + "</span>"; }).join("") + '</p>' +
+      '<label class="sel-met"><input type="checkbox" data-i="' + i + '"> Incluir en el plan</label>' +
+      "</div>";
+    cont.appendChild(d);
+  });
+
+  /* ---------- filtros ---------- */
+  var fichas = Array.prototype.slice.call(document.querySelectorAll(".met"));
+  var botones = Array.prototype.slice.call(document.querySelectorAll("#filtros button"));
+  var contador = document.getElementById("contador");
+  function filtrar(f){
+    var n = 0;
+    fichas.forEach(function(x){
+      var ok = (f === "todos") || x.dataset.formato === f;
+      x.classList.toggle("oculto", !ok);
+      if (ok) n++;
+    });
+    contador.textContent = n + " de " + fichas.length + " métodos";
+  }
+  botones.forEach(function(b){
+    b.addEventListener("click", function(){
+      botones.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      filtrar(b.dataset.f);
+    });
+  });
+  filtrar("todos");
+
+  document.getElementById("abrir").addEventListener("click", function(){
+    fichas.forEach(function(x){ x.open = true; });
+  });
+  document.getElementById("cerrar").addEventListener("click", function(){
+    fichas.forEach(function(x){ x.open = false; });
+  });
+  window.addEventListener("beforeprint", function(){
+    fichas.forEach(function(x){ x.open = true; x.classList.remove("oculto"); });
+  });
+
+  /* ---------- planificador ---------- */
+  var elegidos = [];
+  cont.addEventListener("change", function(ev){
+    var c = ev.target;
+    if (c.type !== "checkbox") return;
+    var i = parseInt(c.dataset.i, 10);
+    var p = elegidos.indexOf(i);
+    if (c.checked && p < 0) elegidos.push(i);
+    if (!c.checked && p >= 0) elegidos.splice(p, 1);
+    panel();
+  });
+
+  function panel(){
+    var n = elegidos.length;
+    var horas = elegidos.reduce(function(a, i){ return a + HORAS[i]; }, 0);
+    var cubiertas = {};
+    elegidos.forEach(function(i){ METODOS[i].comp.forEach(function(c){ cubiertas[c] = true; }); });
+    var nCub = Object.keys(cubiertas).length;
+    var pct = Math.round(100 * nCub / UNIVERSO.length);
+
+    document.getElementById("p-n").textContent = n + (n === 1 ? " método" : " métodos");
+    document.getElementById("p-h").textContent = (Math.round(horas*10)/10) + " h";
+    document.getElementById("p-bar").style.width = pct + "%";
+
+    var falta = document.getElementById("p-falta");
+    if (!n) { falta.textContent = "Marca métodos en el catálogo para ver la cobertura de competencias."; return; }
+    var sin = UNIVERSO.filter(function(c){ return !cubiertas[c]; });
+    var txt = "Cobertura: <strong>" + nCub + "/" + UNIVERSO.length + " competencias (" + pct + "&nbsp;%)</strong>. ";
+    if (sin.length) txt += "Sin cubrir: " + sin.join(", ") + ".";
+    else txt += "Todas cubiertas.";
+    if (n > 6) txt += ' <span style="color:var(--warn)">Más de seis formatos distintos: la dispersión metodológica cuesta más tiempo de explicación del que rinde.</span>';
+    if (horas > 14) txt += ' <span style="color:var(--risk)">Carga de aula alta para un cuatrimestre con seis capítulos que cubrir.</span>';
+    falta.innerHTML = txt;
+  }
+  panel();
+
+  /* ---------- índice activo ---------- */
+  var enlaces = Array.prototype.slice.call(document.querySelectorAll("nav.toc a"));
+  var secciones = enlaces.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = secciones.indexOf(e.target);
+        if (i < 0) return;
+        enlaces.forEach(function(a, j){ a.classList.toggle("on", i === j); });
+      });
+    }, {rootMargin:"-15% 0px -75% 0px"});
+    secciones.forEach(function(s){ if (s) obs.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>

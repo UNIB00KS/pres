@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calibración en diez ítems · Filosofía y conocimiento (26311M9)</title>
+<meta name="description" content="Widget de aula autocontenido: diez enunciados de epistemología aplicada, deslizador de tres topes (1 falsa · 3 indecidible · 5 correcta), puntuación automática y feedback razonado para las tres respuestas posibles.">
+<meta name="author" content="Miguel Moreno Muñoz">
+<style>
+/* ===================================================================
+   Calibración en diez ítems — widget de aula, fichero único
+   Sin dependencias externas: ni fuentes, ni scripts, ni imágenes.
+   =================================================================== */
+:root{
+  --bg:#ffffff; --bg-alt:#f0ece3; --card:#ffffff; --ink:#0e1013; --ink-soft:#3e4650;
+  --line:#c9c2b4; --line-soft:#e2ddd2;
+  --accent:#8a3400; --accent-bg:#fbeee2;
+  --fal:#a8102b; --fal-bg:#fdeaed; --fal-ink:#7a0c1f;
+  --ind:#7a5200; --ind-bg:#fdf2d8; --ind-ink:#5c3e00;
+  --cor:#0f5f3f; --cor-bg:#e2f3ea; --cor-ink:#0b4730;
+  --shadow:0 1px 2px rgba(0,0,0,.06),0 8px 26px rgba(0,0,0,.07);
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+body.oscuro{
+  --bg:#0b0d10; --bg-alt:#151a20; --card:#141920; --ink:#f4f2ee; --ink-soft:#b8c0ca;
+  --line:#3a434e; --line-soft:#252c34;
+  --accent:#ffb066; --accent-bg:#2a1d10;
+  --fal:#ff8896; --fal-bg:#331319; --fal-ink:#ffb3bd;
+  --ind:#ffcf5c; --ind-bg:#332913; --ind-ink:#ffe09a;
+  --cor:#5fd8a0; --cor-bg:#0f2c21; --cor-ink:#9ceac5;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 8px 26px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:clamp(17px,1.15vw,22px);line-height:1.55;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.1rem 4rem}
+header.top .wrap{padding-bottom:0}
+
+/* ---------- cabecera ---------- */
+header.top{background:var(--bg-alt);border-bottom:3px solid var(--line);padding:1.1rem 0 .9rem}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 .35rem;font-weight:700}
+h1{font-family:var(--serif);font-size:clamp(1.6rem,3.1vw,2.5rem);line-height:1.15;margin:0 0 .3rem;font-weight:700;letter-spacing:-.01em}
+.sub{color:var(--ink-soft);margin:.2rem 0 0;max-width:52rem;font-size:.98rem}
+
+/* ---------- barra de puntuación ---------- */
+.marcador{
+  position:sticky;top:0;z-index:40;background:var(--bg);
+  border-bottom:3px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+body.oscuro .marcador{box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.marcador .in{max-width:70rem;margin:0 auto;padding:.35rem 1.1rem;display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap}
+.score{display:flex;align-items:baseline;gap:.35rem;line-height:1}
+.score .n{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(3.2rem,7.5vw,5.6rem);line-height:.85;
+  letter-spacing:-.04em;font-variant-numeric:tabular-nums;
+  transition:color .18s;
+}
+.score .de{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,2.1rem);color:var(--ink-soft);font-weight:700}
+.score .cap{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);align-self:flex-end;margin-left:.15rem;padding-bottom:.35rem
+}
+.n.b0{color:var(--fal)} .n.b1{color:var(--ind)} .n.b2{color:var(--cor)} .n.b9{color:var(--ink-soft)}
+
+.puntos{display:flex;gap:.3rem;flex-wrap:wrap}
+.pt{
+  width:1.5rem;height:1.5rem;border-radius:50%;border:2.5px solid var(--line);
+  background:transparent;font-family:var(--mono);font-size:.68rem;font-weight:700;
+  color:var(--ink-soft);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;padding:0;transition:transform .12s;
+}
+.pt:hover{transform:scale(1.15)}
+.pt.hecho{border-color:var(--accent);color:var(--accent)}
+.pt.ok{background:var(--cor);border-color:var(--cor);color:#fff}
+.pt.ko{background:var(--fal);border-color:var(--fal);color:#fff}
+body.oscuro .pt.ok,body.oscuro .pt.ko{color:#0b0d10}
+.pt.aqui{outline:3px solid var(--accent);outline-offset:2px}
+
+.estado{font-size:.85rem;color:var(--ink-soft);margin-left:auto;text-align:right;min-width:11rem}
+.estado b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* ---------- botones ---------- */
+.btns{display:flex;gap:.45rem;flex-wrap:wrap}
+button.act{
+  font:inherit;font-size:.85rem;font-weight:600;padding:.45rem .95rem;
+  border:2px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);
+  cursor:pointer;line-height:1.2;
+}
+button.act:hover{border-color:var(--accent);color:var(--accent)}
+button.act.pri{background:var(--accent);border-color:var(--accent);color:#fff}
+body.oscuro button.act.pri{color:#0b0d10}
+button.act.pri:hover{filter:brightness(1.12);color:#fff}
+body.oscuro button.act.pri:hover{color:#0b0d10}
+button.act:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* ---------- ítems ---------- */
+.item{
+  background:var(--card);border:2.5px solid var(--line);border-radius:14px;
+  padding:1.2rem 1.4rem 1.4rem;margin:1.1rem 0;box-shadow:var(--shadow);
+}
+.item.resuelto-ok{border-color:var(--cor)}
+.item.resuelto-ko{border-color:var(--fal)}
+.cab{display:flex;align-items:baseline;gap:.7rem;margin-bottom:.5rem}
+.num{
+  font-family:var(--mono);font-weight:700;font-size:.95rem;
+  background:var(--accent);color:#fff;border-radius:7px;padding:.12rem .55rem;flex:none;
+}
+body.oscuro .num{color:#0b0d10}
+.q{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(1.22rem,2.15vw,1.85rem);line-height:1.28;margin:0;
+  letter-spacing:-.005em;
+}
+
+/* ---------- deslizador ---------- */
+.slider-box{margin:1.1rem 0 .2rem}
+.escala{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.45rem}
+.et{
+  text-align:center;font-family:var(--sans);font-weight:800;
+  font-size:clamp(.78rem,1.15vw,1rem);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-soft);border-radius:8px;padding:.32rem .2rem;border:2px solid transparent;
+  cursor:pointer;user-select:none;transition:all .15s;
+}
+.et .cifra{display:block;font-family:var(--serif);font-size:1.5em;line-height:1;letter-spacing:0}
+.et:hover{background:var(--bg-alt)}
+.et.on1{color:var(--fal-ink);background:var(--fal-bg);border-color:var(--fal)}
+.et.on3{color:var(--ind-ink);background:var(--ind-bg);border-color:var(--ind)}
+.et.on5{color:var(--cor-ink);background:var(--cor-bg);border-color:var(--cor)}
+
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;background:transparent;
+  margin:.2rem 0 0;cursor:pointer;height:3.2rem;
+}
+input[type=range]:focus{outline:none}
+input[type=range]:focus-visible::-webkit-slider-runnable-track{outline:3px solid var(--accent);outline-offset:3px}
+input[type=range]:focus-visible::-moz-range-track{outline:3px solid var(--accent);outline-offset:3px}
+input[type=range]::-webkit-slider-runnable-track{
+  height:1.1rem;border-radius:999px;border:2.5px solid var(--line);
+  background:linear-gradient(90deg,var(--fal-bg) 0 33.3%,var(--ind-bg) 33.3% 66.6%,var(--cor-bg) 66.6% 100%);
+}
+input[type=range]::-moz-range-track{
+  height:1.1rem;border-radius:999px;border:2.5px solid var(--line);
+  background:linear-gradient(90deg,var(--fal-bg) 0 33.3%,var(--ind-bg) 33.3% 66.6%,var(--cor-bg) 66.6% 100%);
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:2.9rem;height:2.9rem;border-radius:50%;
+  background:var(--ink-soft);border:4px solid var(--card);
+  box-shadow:0 0 0 2.5px var(--ink-soft),0 3px 10px rgba(0,0,0,.3);
+  margin-top:-.95rem;transition:background .15s,box-shadow .15s;
+}
+input[type=range]::-moz-range-thumb{
+  width:2.9rem;height:2.9rem;border-radius:50%;
+  background:var(--ink-soft);border:4px solid var(--card);
+  box-shadow:0 0 0 2.5px var(--ink-soft),0 3px 10px rgba(0,0,0,.3);
+  transition:background .15s,box-shadow .15s;
+}
+.sl.v1::-webkit-slider-thumb{background:var(--fal);box-shadow:0 0 0 2.5px var(--fal),0 3px 10px rgba(0,0,0,.3)}
+.sl.v1::-moz-range-thumb{background:var(--fal);box-shadow:0 0 0 2.5px var(--fal),0 3px 10px rgba(0,0,0,.3)}
+.sl.v3::-webkit-slider-thumb{background:var(--ind);box-shadow:0 0 0 2.5px var(--ind),0 3px 10px rgba(0,0,0,.3)}
+.sl.v3::-moz-range-thumb{background:var(--ind);box-shadow:0 0 0 2.5px var(--ind),0 3px 10px rgba(0,0,0,.3)}
+.sl.v5::-webkit-slider-thumb{background:var(--cor);box-shadow:0 0 0 2.5px var(--cor),0 3px 10px rgba(0,0,0,.3)}
+.sl.v5::-moz-range-thumb{background:var(--cor);box-shadow:0 0 0 2.5px var(--cor),0 3px 10px rgba(0,0,0,.3)}
+.sl.virgen::-webkit-slider-thumb{background:var(--card);box-shadow:0 0 0 2.5px var(--line),0 3px 10px rgba(0,0,0,.2)}
+.sl.virgen::-moz-range-thumb{background:var(--card);box-shadow:0 0 0 2.5px var(--line),0 3px 10px rgba(0,0,0,.2)}
+
+.tumarca{
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin:.15rem 0 0;
+}
+.tumarca b{font-family:var(--sans);letter-spacing:0;font-size:1.15em}
+
+/* ---------- feedback ---------- */
+.fb{display:none;margin-top:1rem;border-radius:12px;overflow:hidden;border:2.5px solid var(--line)}
+.fb.show{display:block}
+.fb .vered{
+  padding:.6rem 1rem;font-weight:800;font-size:clamp(1rem,1.6vw,1.3rem);
+  display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;
+}
+.fb .vered .tag{font-family:var(--mono);font-size:.72em;letter-spacing:.12em;text-transform:uppercase;padding:.12rem .5rem;border-radius:6px;border:2px solid currentColor}
+.fb.ok{border-color:var(--cor)} .fb.ok .vered{background:var(--cor-bg);color:var(--cor-ink)}
+.fb.ko{border-color:var(--fal)} .fb.ko .vered{background:var(--fal-bg);color:var(--fal-ink)}
+.fb .cuerpo{padding:.8rem 1rem 1rem;background:var(--card)}
+.fb .clave{margin:0 0 .8rem;font-size:1.02rem}
+.opt3{display:grid;gap:.5rem}
+.o{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;padding:.55rem .7rem;border-radius:9px;background:var(--bg-alt);font-size:.92rem}
+.o .mk{
+  font-family:var(--serif);font-weight:700;font-size:1.5rem;line-height:1;
+  width:2.1rem;height:2.1rem;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:2.5px solid currentColor;flex:none;
+}
+.o.k1{color:var(--fal-ink)} .o.k3{color:var(--ind-ink)} .o.k5{color:var(--cor-ink)}
+.o .tx{color:var(--ink)}
+.o .rot{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.15rem;color:currentColor;font-weight:700}
+.o.buena{background:var(--cor-bg);outline:2.5px solid var(--cor)}
+.o.tuya{outline:2.5px dashed currentColor}
+
+/* ---------- modo aula ---------- */
+body.aula header.top{padding:.7rem 0 .6rem}
+body.aula header.top .sub{display:none}
+body.aula h1{font-size:clamp(1.25rem,2.1vw,1.75rem)}
+body.aula .lista .item{display:none}
+body.aula .lista .item.on{display:block}
+body.aula .q{font-size:clamp(1.5rem,3.1vw,2.6rem)}
+body.aula .item{padding:1.3rem 1.7rem 1.5rem;margin:.9rem 0}
+body.aula .et{font-size:clamp(.9rem,1.5vw,1.2rem);padding:.5rem .2rem}
+body.aula input[type=range]{height:4rem}
+body.aula input[type=range]::-webkit-slider-thumb{width:3.6rem;height:3.6rem;margin-top:-1.25rem}
+body.aula input[type=range]::-moz-range-thumb{width:3.6rem;height:3.6rem}
+body.aula .fb .cuerpo{font-size:1.05rem}
+.nav{display:none;gap:.6rem;align-items:center;justify-content:center;margin:1rem 0 0}
+body.aula .nav{display:flex}
+.nav button{font-size:1.1rem;padding:.5rem 1.3rem}
+.nav .pos{font-family:var(--mono);font-size:.95rem;color:var(--ink-soft);min-width:5.5rem;text-align:center}
+.ayuda{display:none;text-align:center;font-size:.8rem;color:var(--ink-soft);margin:.6rem 0 0}
+body.aula .ayuda{display:block}
+.solo-aula{display:none}
+body.aula .solo-aula{display:block}
+body.aula .solo-lista{display:none}
+
+/* ---------- balance final ---------- */
+.balance{display:none;margin:1.6rem 0 0;border:3px solid var(--accent);border-radius:14px;background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+.balance.show{display:block}
+.balance .cifra{background:var(--accent-bg);padding:1.2rem 1.4rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.balance .grande{font-family:var(--serif);font-weight:700;font-size:clamp(3.5rem,9vw,6.5rem);line-height:.85;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.balance .txt{flex:1;min-width:16rem}
+.balance .txt h3{font-family:var(--serif);margin:0 0 .2rem;font-size:clamp(1.2rem,2.2vw,1.7rem)}
+.balance .txt p{margin:0;color:var(--ink-soft);font-size:.95rem}
+.balance .desglose{padding:1rem 1.4rem 1.3rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.8rem}
+.dg{border-radius:10px;padding:.6rem .8rem;border:2px solid var(--line)}
+.dg b{display:block;font-family:var(--serif);font-size:1.9rem;line-height:1.05}
+.dg span{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.dg.d1{border-color:var(--fal)} .dg.d1 b{color:var(--fal)}
+.dg.d3{border-color:var(--ind)} .dg.d3 b{color:var(--ind)}
+.dg.d5{border-color:var(--cor)} .dg.d5 b{color:var(--cor)}
+
+.aviso{border-left:5px solid var(--accent);background:var(--accent-bg);border-radius:0 10px 10px 0;padding:.85rem 1.1rem;margin:1.2rem 0;font-size:.95rem}
+.aviso p{margin:.3rem 0}
+.aviso p:first-child{margin-top:0} .aviso p:last-child{margin-bottom:0}
+kbd{font-family:var(--mono);font-size:.85em;border:1.5px solid var(--line);border-bottom-width:3px;border-radius:5px;padding:.05em .38em;background:var(--bg-alt)}
+footer{margin-top:3rem;padding-top:1.1rem;border-top:2px solid var(--line);font-size:.85rem;color:var(--ink-soft)}
+footer a{color:var(--accent)}
+
+@media (max-width:640px){
+  .estado{margin-left:0;text-align:left;width:100%}
+  .marcador .in{gap:.7rem;padding:.5rem .9rem}
+  .o{grid-template-columns:1fr}
+  .o .mk{display:none}
+}
+@media print{
+  .marcador,.btns,.nav,input[type=range],.pt{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  body.aula .lista .item{display:block!important}
+  .item{box-shadow:none;break-inside:avoid;border-color:#999}
+  .fb{display:block!important}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body class="aula">
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Filosofía y conocimiento · 26311M9 · Parte I, sesión 2</p>
+    <h1>Calibración en diez ítems</h1>
+    <p class="sub">Un enunciado, un deslizador, tres posiciones. <strong>1 = falsa o inválida · 3 = indecidible con lo dado · 5 = correcta.</strong> La posición central no es una salida cómoda: es un veredicto con contenido, y en dos de los diez ítems es la única respuesta defendible.</p>
+  </div>
+</header>
+
+<div class="marcador">
+  <div class="in">
+    <div class="score">
+      <span class="n b9" id="cifra">0</span><span class="de">/10</span>
+      <span class="cap" id="cap">aciertos</span>
+    </div>
+    <div class="puntos" id="puntos"></div>
+    <div class="btns">
+      <button class="act pri" id="corregir">Corregir</button>
+      <button class="act" id="reiniciar">Reiniciar</button>
+      <button class="act" id="modo">Ver los diez</button>
+      <button class="act" id="contraste">Oscuro</button>
+    </div>
+    <div class="estado" id="estado">Sin responder todavía</div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <div class="lista" id="lista"></div>
+
+  <div class="nav">
+    <button class="act" id="prev">◀ Anterior</button>
+    <span class="pos" id="pos">1 / 10</span>
+    <button class="act" id="next">Siguiente ▶</button>
+  </div>
+
+  <p class="ayuda">Teclado: <kbd>←</kbd> <kbd>→</kbd> para navegar · <kbd>1</kbd> <kbd>3</kbd> <kbd>5</kbd> para responder · <kbd>C</kbd> para corregir</p>
+
+  <div class="balance" id="balance"></div>
+
+  <div class="aviso">
+    <p><strong>Qué mirar en el resultado.</strong> El número importa menos que <em>dónde</em> se falla. Marcar 1 en todo produce siete aciertos sin haber pensado ninguno: el reparto de la clave está deliberadamente sesgado hacia la respuesta cómoda. Los ítems que discriminan son los dos indecidibles y el correcto, porque exigen distinguir «el enunciado es inválido» de «falta información para juzgarlo» y de «esto es exactamente lo que dice la posición».</p>
+  </div>
+
+<footer>
+<p><strong>Filosofía y conocimiento</strong> (26311M9), 4.º del Grado en Filosofía, Universidad de Granada · Parte I, sesión 2. Complemento de <em>Repaso con trampa: doce nociones previas puestas a prueba</em>.<br>
+Contenidos conceptuales del capítulo 1 de la monografía técnica <em>Filosofía y conocimiento</em> (v.6): Gettier, Williamson, Goldman, Collins y Evans, Fricker, Pohlhaus, Nguyen, entre otros. Edición en línea: <a href="https://fcon2026.netlify.app/">fcon2026.netlify.app</a>. Fichero autónomo: no requiere ningún recurso externo.</p>
+</footer>
+</main>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------------- datos ---------------- */
+var ETIQ = {1:"Falsa o inválida", 3:"Indecidible con lo dado", 5:"Correcta"};
+
+var ITEMS = [
+{
+  q:"«Este tratamiento no ha sido refutado por ningún ensayo, luego hay razones para considerarlo eficaz.»",
+  r:1,
+  clave:"Inversión de la carga de la prueba: <em>demuéstrame que no funciona</em>. Es uno de los indicios más fuertes del haz de demarcación (ficha 12). La ausencia de refutación no es evidencia de eficacia; es, con frecuencia, evidencia de que nadie lo ha puesto a prueba.",
+  g:{
+    1:"El vicio está en el «luego»: convierte un vacío de investigación en un apoyo positivo.",
+    3:"No falta información. El defecto es formal y se ve en el propio enunciado, sin conocer el tratamiento.",
+    5:"Solo lo sería si «no refutado» significase «ensayado y superado». Casi siempre significa lo contrario."
+  }
+},
+{
+  q:"«El pronóstico acertó: la agencia que lo emitió es fiable.»",
+  r:3,
+  clave:"Un acierto aislado no informa sobre la fiabilidad del procedimiento (fichas 3 y 4). Harían falta la serie histórica de aciertos y fallos y saber qué hace la agencia cuando se equivoca. Con un solo caso, indecidible.",
+  g:{
+    1:"La conclusión no es falsa: la agencia puede ser perfectamente fiable. Lo que no vale es inferirlo de un acierto.",
+    3:"Falta exactamente un dato, y es el que decide: la serie de aciertos y fallos, no este caso.",
+    5:"Sería el reloj parado de Russell: acertar sin que el procedimiento tenga nada que ver con el acierto."
+  }
+},
+{
+  q:"«Toda observación está cargada de teoría, así que ninguna medición puede zanjar la discusión.»",
+  r:1,
+  clave:"La premisa es correcta y la conclusión no se sigue (ficha 6). Que un dato dependa de un marco obliga a explicitar el marco, no a renunciar a medir. Usada así, la tesis funciona como comodín para no aceptar ninguna evidencia adversa.",
+  g:{
+    1:"El fallo está en el «así que». La carga teórica obliga a declarar el marco, no a suspender la medición.",
+    3:"No hace falta más contexto: el salto de la premisa a la conclusión es inválido con cualquier contenido.",
+    5:"Solo la primera mitad es correcta; aceptarla entera es el comodín de la epistemología de supermercado."
+  }
+},
+{
+  q:"«Los vecinos llevaban treinta años avisando de que el barranco se desbordaba; no se les hizo caso porque nadie tenía todavía los conceptos para entender ese riesgo.»",
+  r:1,
+  clave:"Confunde injusticia hermenéutica con ignorancia hermenéutica voluntaria (ficha 10). El recurso conceptual existía —lo tenían los propios vecinos y también la administración hidráulica—. Diagnosticar laguna donde hubo rechazo activo exculpa a quien decidió no escuchar.",
+  g:{
+    1:"El enunciado se refuta a sí mismo: si los vecinos avisaban, el concepto estaba disponible.",
+    3:"No falta información. El dato que decide —treinta años de avisos— está en la propia frase.",
+    5:"Lo sería si describiera una laguna conceptual real, como «acoso laboral» antes de que existiera el término."
+  }
+},
+{
+  q:"«La ciencia se ha equivocado muchas veces, así que hay que tomar sus conclusiones actuales con la misma reserva que cualquier otra opinión.»",
+  r:1,
+  clave:"Falibilismo convertido en coartada relativista (fichas 2 y 5). De que cualquier creencia pueda ser errónea no se sigue que todas estén igual de fundadas. La frase, además, usa el historial de autocorrección de la ciencia como argumento en su contra, cuando es justo lo que la distingue.",
+  g:{
+    1:"«Puede equivocarse» y «vale lo mismo que cualquier opinión» son dos tesis distintas, y de la primera no sale la segunda.",
+    3:"No depende del caso ni de la disciplina: el salto es inválido siempre.",
+    5:"Aceptar la premisa —la falibilidad— es obligatorio; aceptar la conclusión es abandonar todo criterio."
+  }
+},
+{
+  q:"«Esta persona no tiene titulación en la materia, así que su valoración técnica no aporta nada.»",
+  r:1,
+  clave:"Ignora la experticia interaccional (ficha 9). Hay competencia adquirida por inmersión prolongada —periodistas científicos veteranos, pacientes crónicos, gestores de programas— que permite detectar cuándo alguien se sale del guión sin capacidad de contribuir al campo.",
+  g:{
+    1:"Entre «experto titulado» y «lego» hay una posición intermedia real, y el enunciado la borra.",
+    3:"Aunque no sepamos quién es la persona, la inferencia «sin título, luego nada» ya es inválida.",
+    5:"La credencial es un indicio útil —tercera vía de Goldman—, nunca una condición necesaria."
+  }
+},
+{
+  q:"«Ese medio publica sistemáticamente lo contrario de lo que pienso; exponerme a él corregiría mis sesgos.»",
+  r:3,
+  clave:"Depende de la estructura (ficha 11). Si estás en una burbuja epistémica, la exposición ayuda. Si estás en una cámara de eco —o si lo está el medio—, la exposición refuerza la posición previa en lugar de erosionarla. Sin saber cuál es el caso, indecidible.",
+  g:{
+    1:"No es falsa: en una burbuja epistémica, que funciona por omisión, la exposición es justo el remedio.",
+    3:"El dato que falta es la estructura: omisión (burbuja) o descrédito previo (cámara de eco).",
+    5:"En una cámara de eco la voz externa llega ya desacreditada y cada exposición confirma la posición."
+  }
+},
+{
+  q:"«Sabemos que el cambio climático es de origen antrópico, así que la discusión sobre qué medidas adoptar es puramente técnica.»",
+  r:1,
+  clave:"Salta del conocimiento a la decisión sin pasar por la parte normativa (ficha 7). Cuánta evidencia basta para actuar, quién asume el coste y cómo se reparte el riesgo no son cuestiones que resuelva el consenso sobre los hechos.",
+  g:{
+    1:"La premisa es correcta y la conclusión oculta un reparto de cargas que ninguna medición decide.",
+    3:"No falta información sobre el clima: falta reconocer que la segunda pregunta es de otro tipo.",
+    5:"Lo sería si la evidencia fijase por sí sola el umbral de acción. Nunca lo hace: eso es normativo."
+  }
+},
+{
+  q:"«Un termómetro bien calibrado no sabe por qué acierta, pero sus lecturas están justificadas.»",
+  r:5,
+  clave:"Es la formulación estándar del fiabilismo (ficha 4): la justificación depende de que el proceso sea fiable, no de que el sujeto tenga acceso a las razones. Que sea verdadera dentro del externismo no zanja la disputa con el internismo, pero el enunciado es correcto.",
+  g:{
+    1:"Negarla exige sostener que solo hay justificación donde hay razones accesibles: eso es internismo, no un error del enunciado.",
+    3:"No falta información: es una tesis, no un caso. Se juzga por su coherencia con la posición que expresa.",
+    5:"Justificación sin acceso a las razones: exactamente lo que afirma el fiabilismo de Goldman."
+  }
+},
+{
+  q:"«Este informe lo firma una institución con intereses económicos en el sector, luego sus conclusiones son falsas.»",
+  r:1,
+  clave:"El conflicto de interés es una razón sólida para <strong>exigir verificación independiente</strong> y para ajustar el grado de confianza, no para concluir la falsedad (fichas 2 y 8). Es la cuarta vía de Goldman usada como si fuera concluyente por sí sola; ninguna lo es.",
+  g:{
+    1:"Del origen interesado de una afirmación no se sigue su falsedad: eso es un ad hominem circunstancial.",
+    3:"El conflicto de interés ya está declarado en el enunciado; lo que se juzga es el «luego», y es inválido.",
+    5:"El interés obliga a rebajar la confianza y a buscar verificación independiente, no a invertir la conclusión."
+  }
+}
+];
+
+/* ---------------- estado ---------------- */
+var N = ITEMS.length;
+var estado = ITEMS.map(function(){ return {v:3, tocado:false}; });
+var corregido = false;
+var actual = 0;
+
+var lista   = document.getElementById("lista");
+var puntos  = document.getElementById("puntos");
+var cifra   = document.getElementById("cifra");
+var cap     = document.getElementById("cap");
+var estadoEl= document.getElementById("estado");
+var balance = document.getElementById("balance");
+var posEl   = document.getElementById("pos");
+
+/* ---------------- construcción ---------------- */
+ITEMS.forEach(function(it, i){
+  var d = document.createElement("section");
+  d.className = "item" + (i === 0 ? " on" : "");
+  d.id = "it" + i;
+  d.innerHTML =
+    '<div class="cab"><span class="num">' + (i + 1) + '</span>' +
+      '<h2 class="q">' + it.q + '</h2></div>' +
+    '<div class="slider-box">' +
+      '<div class="escala">' +
+        '<span class="et" data-i="' + i + '" data-v="1"><span class="cifra">1</span>Falsa</span>' +
+        '<span class="et" data-i="' + i + '" data-v="3"><span class="cifra">3</span>Indecidible</span>' +
+        '<span class="et" data-i="' + i + '" data-v="5"><span class="cifra">5</span>Correcta</span>' +
+      '</div>' +
+      '<input class="sl virgen" type="range" min="1" max="5" step="2" value="3" data-i="' + i + '"' +
+      ' aria-label="Ítem ' + (i + 1) + ': 1 falsa, 3 indecidible, 5 correcta">' +
+      '<p class="tumarca" id="tm' + i + '">Sin responder</p>' +
+    '</div>' +
+    '<div class="fb" id="fb' + i + '"></div>';
+  lista.appendChild(d);
+
+  var b = document.createElement("button");
+  b.type = "button";
+  b.className = "pt" + (i === 0 ? " aqui" : "");
+  b.textContent = String(i + 1);
+  b.setAttribute("data-i", i);
+  b.setAttribute("aria-label", "Ir al ítem " + (i + 1));
+  puntos.appendChild(b);
+});
+
+/* ---------------- interacción ---------------- */
+function fijar(i, v){
+  estado[i].v = v;
+  estado[i].tocado = true;
+  var sl = lista.querySelector('input[data-i="' + i + '"]');
+  sl.value = String(v);
+  pintarItem(i);
+  if (corregido) pintarFeedback(i);
+  actualizar();
+}
+
+function pintarItem(i){
+  var st = estado[i];
+  var sl = lista.querySelector('input[data-i="' + i + '"]');
+  sl.className = "sl " + (st.tocado ? "v" + st.v : "virgen");
+  var ets = lista.querySelectorAll('.et[data-i="' + i + '"]');
+  Array.prototype.forEach.call(ets, function(e){
+    var v = e.getAttribute("data-v");
+    e.className = "et" + (st.tocado && String(st.v) === v ? " on" + v : "");
+  });
+  document.getElementById("tm" + i).innerHTML = st.tocado
+    ? 'Tu respuesta: <b>' + st.v + " · " + ETIQ[st.v] + "</b>"
+    : "Sin responder";
+}
+
+lista.addEventListener("input", function(ev){
+  var t = ev.target;
+  if (t.type !== "range") return;
+  fijar(parseInt(t.getAttribute("data-i"), 10), parseInt(t.value, 10));
+});
+lista.addEventListener("click", function(ev){
+  var e = ev.target.closest ? ev.target.closest(".et") : null;
+  if (!e) return;
+  fijar(parseInt(e.getAttribute("data-i"), 10), parseInt(e.getAttribute("data-v"), 10));
+});
+puntos.addEventListener("click", function(ev){
+  var b = ev.target.closest ? ev.target.closest(".pt") : null;
+  if (!b) return;
+  ir(parseInt(b.getAttribute("data-i"), 10));
+});
+
+/* ---------------- feedback ---------------- */
+function pintarFeedback(i){
+  var it = ITEMS[i], st = estado[i];
+  var fb = document.getElementById("fb" + i);
+  var card = document.getElementById("it" + i);
+  if (!st.tocado){
+    fb.className = "fb"; fb.innerHTML = "";
+    card.className = "item" + (card.classList.contains("on") ? " on" : "");
+    return;
+  }
+  var ok = st.v === it.r;
+  var cabecera = ok
+    ? '<span class="tag">Acierto</span><span>Has marcado ' + st.v + " · " + ETIQ[st.v] + ", y es la respuesta.</span>"
+    : '<span class="tag">Fallo</span><span>Has marcado ' + st.v + " · " + ETIQ[st.v] + ". La respuesta es <strong>" + it.r + " · " + ETIQ[it.r] + "</strong>.</span>";
+
+  var filas = [1,3,5].map(function(v){
+    var cls = "o k" + v + (v === it.r ? " buena" : "") + (v === st.v && v !== it.r ? " tuya" : "");
+    var rot = v === it.r ? ETIQ[v] + " — respuesta correcta"
+            : (v === st.v ? ETIQ[v] + " — lo que marcaste" : ETIQ[v]);
+    return '<div class="' + cls + '"><span class="mk">' + v + "</span>" +
+           '<span class="tx"><span class="rot">' + rot + "</span>" + it.g[v] + "</span></div>";
+  }).join("");
+
+  fb.className = "fb show " + (ok ? "ok" : "ko");
+  fb.innerHTML =
+    '<div class="vered">' + cabecera + "</div>" +
+    '<div class="cuerpo"><p class="clave">' + it.clave + "</p>" +
+    '<div class="opt3">' + filas + "</div></div>";
+  card.className = "item resuelto-" + (ok ? "ok" : "ko") + (card.classList.contains("on") ? " on" : "");
+}
+
+/* ---------------- marcador ---------------- */
+function actualizar(){
+  var resp = 0, ac = 0, porClave = {1:0, 3:0, 5:0};
+  estado.forEach(function(st, i){
+    if (!st.tocado) return;
+    resp++;
+    porClave[st.v]++;
+    if (st.v === ITEMS[i].r) ac++;
+  });
+
+  cifra.textContent = corregido ? String(ac) : String(resp);
+  cap.textContent = corregido ? "aciertos" : "respondidas";
+  cifra.className = "n " + (!corregido ? "b9" : (ac >= 8 ? "b2" : (ac >= 5 ? "b1" : "b0")));
+
+  Array.prototype.forEach.call(puntos.children, function(b, i){
+    var st = estado[i];
+    var c = "pt";
+    if (corregido && st.tocado) c += (st.v === ITEMS[i].r ? " ok" : " ko");
+    else if (st.tocado) c += " hecho";
+    if (i === actual) c += " aqui";
+    b.className = c;
+  });
+
+  if (!resp) estadoEl.innerHTML = "Sin responder todavía";
+  else if (!corregido) estadoEl.innerHTML = "Respondidas <b>" + resp + "</b> de <b>" + N + "</b>. Pulsa <b>Corregir</b>.";
+  else estadoEl.innerHTML = "<b>" + ac + "</b> de <b>" + resp + "</b> respondidas · " + Math.round(ac * 100 / N) + "&nbsp;% del total";
+
+  posEl.textContent = (actual + 1) + " / " + N;
+  pintarBalance(resp, ac, porClave);
+}
+
+function pintarBalance(resp, ac, porClave){
+  if (!corregido){ balance.className = "balance"; balance.innerHTML = ""; return; }
+  var pct = Math.round(ac * 100 / N);
+  var t, p;
+  if (ac >= 9){ t = "Calibración fina"; p = "Has distinguido los tres veredictos, incluidos los dos indecidibles. Eso es lo que la asignatura pide: separar «el argumento es inválido» de «con esto no se puede decidir»."; }
+  else if (ac >= 7){ t = "Buen criterio, con un punto ciego"; p = "Comprueba si los fallos se concentran en los ítems cuya clave es 3 o 5. Si es así, el problema no es de contenido: es que la respuesta cómoda —«falso»— se está aplicando por defecto."; }
+  else if (ac >= 5){ t = "A medio camino"; p = "Repasa las fichas citadas en cada explicación antes de la próxima sesión. Los fallos suelen venir de tratar como falso lo que solo es indecidible, o al revés."; }
+  else { t = "Conviene volver a las fichas"; p = "Menos de la mitad. No es un problema de información sino de procedimiento: antes de responder, pregúntate qué dato haría falta para decidir, y si ese dato está o no en el enunciado."; }
+
+  var mal1 = 0, mal3 = 0, mal5 = 0;
+  estado.forEach(function(st, i){
+    if (!st.tocado || st.v === ITEMS[i].r) return;
+    if (ITEMS[i].r === 1) mal1++; else if (ITEMS[i].r === 3) mal3++; else mal5++;
+  });
+
+  balance.className = "balance show";
+  balance.innerHTML =
+    '<div class="cifra"><span class="grande">' + ac + "</span>" +
+      '<div class="txt"><h3>' + t + "</h3><p>" + p + " Aciertos: <strong>" + ac + " de " + N + "</strong> (" + pct + "&nbsp;%). Sin responder: <strong>" + (N - resp) + "</strong>.</p></div></div>" +
+    '<div class="desglose">' +
+      '<div class="dg d1"><b>' + (7 - mal1) + "/7</b><span>Enunciados falsos detectados</span></div>" +
+      '<div class="dg d3"><b>' + (2 - mal3) + "/2</b><span>Indecidibles detectados</span></div>" +
+      '<div class="dg d5"><b>' + (1 - mal5) + "/1</b><span>Correcto detectado</span></div>" +
+    "</div>";
+}
+
+/* ---------------- navegación ---------------- */
+function ir(i){
+  if (i < 0 || i >= N) return;
+  actual = i;
+  Array.prototype.forEach.call(lista.children, function(c, k){
+    c.classList.toggle("on", k === i);
+  });
+  actualizar();
+  if (!document.body.classList.contains("aula")){
+    document.getElementById("it" + i).scrollIntoView({block:"center"});
+  }
+}
+
+document.getElementById("prev").addEventListener("click", function(){ ir(actual - 1); });
+document.getElementById("next").addEventListener("click", function(){ ir(actual + 1); });
+
+document.getElementById("corregir").addEventListener("click", function(){
+  corregido = true;
+  for (var i = 0; i < N; i++) pintarFeedback(i);
+  actualizar();
+});
+
+document.getElementById("reiniciar").addEventListener("click", function(){
+  corregido = false;
+  estado = ITEMS.map(function(){ return {v:3, tocado:false}; });
+  for (var i = 0; i < N; i++){ pintarItem(i); pintarFeedback(i); }
+  ir(0);
+  window.scrollTo({top:0});
+});
+
+document.getElementById("modo").addEventListener("click", function(){
+  var aula = document.body.classList.toggle("aula");
+  this.textContent = aula ? "Ver los diez" : "Modo aula";
+  if (aula) ir(actual);
+});
+
+document.getElementById("contraste").addEventListener("click", function(){
+  var osc = document.body.classList.toggle("oscuro");
+  this.textContent = osc ? "Claro" : "Oscuro";
+});
+
+document.addEventListener("keydown", function(ev){
+  if (/^(INPUT|TEXTAREA|SELECT)$/.test(ev.target.tagName) && ev.key !== "1" && ev.key !== "3" && ev.key !== "5") return;
+  if (ev.key === "ArrowRight"){ ir(actual + 1); ev.preventDefault(); }
+  else if (ev.key === "ArrowLeft"){ ir(actual - 1); ev.preventDefault(); }
+  else if (ev.key === "1" || ev.key === "3" || ev.key === "5"){ fijar(actual, parseInt(ev.key, 10)); ev.preventDefault(); }
+  else if (ev.key === "c" || ev.key === "C"){ document.getElementById("corregir").click(); }
+});
+
+window.addEventListener("beforeprint", function(){
+  corregido = true;
+  for (var i = 0; i < N; i++) pintarFeedback(i);
+  actualizar();
+});
+
+for (var i = 0; i < N; i++) pintarItem(i);
+actualizar();
+})();
+</script>
+</body>
+</html>

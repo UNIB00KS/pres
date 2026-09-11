@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 2 · Repaso con trampa: doce nociones previas puestas a prueba — Filosofía y conocimiento (26311M9)</title>
+<meta name="description" content="Práctica de repaso de epistemología teórica para Filosofía y conocimiento (26311M9): doce formulaciones de alto riesgo de malentendido, test de calibración, simulador de deferencia y tabla del desfase entre epistemología teórica y aplicada.">
+<meta name="author" content="Miguel Moreno Muñoz">
+<style>
+:root{
+  --bg:#fbfaf7; --bg-alt:#f2efe9; --card:#ffffff; --ink:#1d1f21; --ink-soft:#4a4f55;
+  --line:#ddd8ce; --accent:#7b3f00; --accent-soft:#a8672a; --accent-bg:#f6ecdf;
+  --ok:#2f6f4f; --ok-bg:#e6f1ea; --warn:#8a5a00; --warn-bg:#fbf0d9; --risk:#8f2f2f; --risk-bg:#f8e6e6;
+  --shadow:0 1px 2px rgba(0,0,0,.05),0 6px 18px rgba(0,0,0,.05);
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#15171a; --bg-alt:#1c1f23; --card:#1e2226; --ink:#e8e6e1; --ink-soft:#a8adb4;
+    --line:#333940; --accent:#e0a266; --accent-soft:#c9884a; --accent-bg:#2a221a;
+    --ok:#7fc4a0; --ok-bg:#1c2a23; --warn:#e0b662; --warn-bg:#2b2517; --risk:#e08a8a; --risk-bg:#2c1c1c;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:74rem;margin:0 auto;padding:0 1.25rem 5rem}
+h1,h2,h3,h4{font-family:var(--serif);line-height:1.22;font-weight:600}
+h1{font-size:2.05rem;margin:0 0 .35rem}
+h2{font-size:1.55rem;margin:3rem 0 .6rem;padding-bottom:.35rem;border-bottom:2px solid var(--line)}
+h3{font-size:1.2rem;margin:1.9rem 0 .4rem}
+h4{font-size:1.02rem;margin:1.2rem 0 .3rem;font-family:var(--sans);font-weight:700}
+p{margin:.65rem 0}
+a{color:var(--accent);text-underline-offset:2px}
+code,kbd{font-family:var(--mono);font-size:.87em;background:var(--bg-alt);padding:.08em .35em;border-radius:4px;border:1px solid var(--line)}
+small{color:var(--ink-soft)}
+blockquote{margin:.8rem 0;padding:.5rem 0 .5rem 1rem;border-left:3px solid var(--accent-soft);color:var(--ink-soft);font-style:italic}
+
+header.masthead{background:var(--bg-alt);border-bottom:1px solid var(--line);padding:2.4rem 0 1.8rem}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft);margin:0 0 .5rem}
+.subtitle{color:var(--ink-soft);font-size:1.05rem;margin:.4rem 0 1rem;max-width:54rem}
+.meta-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
+.chip{font-family:var(--mono);font-size:.72rem;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.2rem .65rem;color:var(--ink-soft)}
+
+nav.toc{position:sticky;top:0;z-index:20;background:var(--bg);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:.5rem 0}
+nav.toc ol{display:flex;flex-wrap:wrap;gap:.15rem;list-style:none;margin:0 auto;padding:0 1.25rem;max-width:74rem}
+nav.toc a{display:block;font-size:.79rem;padding:.28rem .6rem;border-radius:6px;text-decoration:none;color:var(--ink-soft)}
+nav.toc a:hover{background:var(--accent-bg);color:var(--accent)}
+nav.toc a.on{background:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){nav.toc a.on{color:#15171a}}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.15rem 1.3rem;box-shadow:var(--shadow);margin:1rem 0}
+.callout{border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin:1.1rem 0}
+.callout.ok{border-color:var(--ok);background:var(--ok-bg)}
+.callout.warn{border-color:var(--warn);background:var(--warn-bg)}
+.callout.risk{border-color:var(--risk);background:var(--risk-bg)}
+.callout > :first-child{margin-top:0}
+.callout > :last-child{margin-bottom:0}
+.lede{font-size:1.07rem;color:var(--ink-soft);max-width:56rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(21rem,1fr));gap:1rem}
+
+.tablewrap{overflow-x:auto;margin:1rem 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--bg-alt);font-size:.78rem;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-soft)}
+tbody tr:last-child td{border-bottom:none}
+
+/* ---------- fichas de malentendido ---------- */
+.ficha{border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:var(--shadow);margin:1rem 0;overflow:hidden}
+.ficha > summary{cursor:pointer;padding:.95rem 1.1rem;list-style:none;display:flex;gap:.85rem;align-items:flex-start}
+.ficha > summary::-webkit-details-marker{display:none}
+.ficha > summary::after{content:"▸";margin-left:auto;color:var(--accent-soft);transition:transform .15s;flex:none}
+.ficha[open] > summary::after{transform:rotate(90deg)}
+.ficha > summary:hover{background:var(--accent-bg)}
+.ficha .n{font-family:var(--mono);font-size:.72rem;background:var(--accent);color:#fff;border-radius:5px;padding:.15rem .45rem;flex:none;margin-top:.2rem}
+@media (prefers-color-scheme:dark){.ficha .n{color:#15171a}}
+.ficha .frase{font-family:var(--serif);font-size:1.08rem;font-weight:600}
+.ficha .frase em{font-style:italic;font-weight:400;color:var(--ink-soft);display:block;font-size:.82rem;font-family:var(--sans);margin-top:.15rem;letter-spacing:.02em;text-transform:uppercase}
+.ficha .body{padding:.2rem 1.1rem 1.1rem;border-top:1px solid var(--line)}
+.rot{font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-soft);font-weight:700;margin:1rem 0 .2rem}
+.rot:first-child{margin-top:.9rem}
+.veredicto{display:inline-block;font-family:var(--mono);font-size:.7rem;border-radius:5px;padding:.15rem .5rem;letter-spacing:.05em}
+.v-inc{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn)}
+.v-fal{background:var(--risk-bg);color:var(--risk);border:1px solid var(--risk)}
+.v-med{background:var(--ok-bg);color:var(--ok);border:1px solid var(--ok)}
+
+/* ---------- test ---------- */
+.item{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:.9rem 1.05rem;margin:.7rem 0}
+.item .q{font-weight:600;margin:0 0 .55rem}
+.opts{display:flex;flex-wrap:wrap;gap:.4rem;margin:.3rem 0 .5rem}
+.opts button{font:inherit;font-size:.82rem;padding:.3rem .75rem;border:1px solid var(--line);border-radius:999px;background:var(--bg-alt);color:var(--ink);cursor:pointer}
+.opts button:hover{border-color:var(--accent-soft)}
+.opts button[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+@media (prefers-color-scheme:dark){.opts button[aria-pressed=true]{color:#15171a}}
+.conf{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--ink-soft);margin:.2rem 0 0}
+.conf input{flex:1;max-width:16rem;accent-color:var(--accent)}
+.fb{display:none;margin-top:.6rem;padding:.6rem .8rem;border-radius:8px;font-size:.9rem}
+.fb.show{display:block}
+.fb.good{background:var(--ok-bg);border-left:3px solid var(--ok)}
+.fb.bad{background:var(--risk-bg);border-left:3px solid var(--risk)}
+#marcador{position:sticky;bottom:0;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.7rem 1rem;box-shadow:var(--shadow);font-size:.88rem;margin-top:1rem;z-index:10}
+#marcador strong{font-family:var(--mono)}
+
+/* ---------- simulador Goldman ---------- */
+.via{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:.75rem .95rem;margin:.55rem 0}
+.via .t{font-weight:600;font-size:.95rem;margin:0 0 .35rem}
+.via .d{font-size:.85rem;color:var(--ink-soft);margin:0 0 .5rem}
+.via .sel{display:flex;flex-wrap:wrap;gap:.35rem}
+.via .sel button{font:inherit;font-size:.78rem;padding:.22rem .6rem;border:1px solid var(--line);border-radius:999px;background:var(--bg-alt);color:var(--ink);cursor:pointer}
+.via .sel button[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+@media (prefers-color-scheme:dark){.via .sel button[aria-pressed=true]{color:#15171a}}
+#veredicto-goldman{margin-top:1rem}
+
+button.act{font:inherit;font-size:.85rem;padding:.4rem .9rem;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);cursor:pointer}
+button.act:hover{border-color:var(--accent-soft);color:var(--accent)}
+.controls{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.9rem 0}
+
+footer{margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.84rem;color:var(--ink-soft)}
+
+@media print{
+  nav.toc,.controls,button,#marcador{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  .card,.ficha,.tablewrap,.item{box-shadow:none;break-inside:avoid}
+  .ficha .body{display:block!important}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Filosofía y conocimiento · 26311M9 · Parte I, sesión 2</p>
+    <h1>Repaso con trampa: doce nociones previas puestas a prueba</h1>
+    <p class="subtitle">Las nociones de epistemología teórica que traes del curso anterior son correctas. El problema es que su formulación abreviada —la que de verdad se recuerda— produce doce errores documentados, y todos se pagan en el momento de aplicarlas a un caso real.</p>
+    <div class="meta-row">
+      <span class="chip">Práctica de aula</span>
+      <span class="chip">12 fichas · 10 ítems · 1 simulador</span>
+      <span class="chip">Base: monografía cap. 1</span>
+      <span class="chip">Duración 90–110 min</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Índice">
+  <ol>
+    <li><a href="#comofunciona">Cómo funciona</a></li>
+    <li><a href="#fichas">Las doce nociones</a></li>
+    <li><a href="#test">Test de calibración</a></li>
+    <li><a href="#goldman">Simulador de deferencia</a></li>
+    <li><a href="#desfase">El desfase</a></li>
+    <li><a href="#cierre">Qué llevarse</a></li>
+  </ol>
+</nav>
+
+<div class="wrap">
+
+<h2 id="comofunciona">Cómo funciona esta práctica</h2>
+
+<p class="lede">No es un repaso de definiciones. Es una comprobación de si las definiciones que ya tienes <strong>sirven para decidir algo</strong> cuando el caso llega sin etiqueta.</p>
+
+<div class="grid2">
+<div class="card">
+<h4>El diagnóstico de partida</h4>
+<p>En una asignatura de teoría del conocimiento se aprende a distinguir posiciones: internismo y externismo, escepticismo global y local, coherentismo y fundacionalismo. Ese aprendizaje es real y no se discute aquí. Lo que falla es otra cosa: <strong>la versión comprimida que sobrevive un año después</strong>. Y esa versión comprimida no es neutral, porque casi siempre pierde justo la cláusula que impedía el mal uso.</p>
+</div>
+<div class="card">
+<h4>El formato</h4>
+<p>Doce fichas, cada una con la formulación tal como suele recordarse, el veredicto, el matiz que se perdió, <strong>el caso donde se paga</strong> y la asimetría entre lo que pregunta la teoría y lo que exige la aplicación. Después, un test de calibración de diez ítems que se autocorrige y un simulador para decidir a qué experto creer. Todo funciona sin conexión y sin registrarse.</p>
+</div>
+</div>
+
+<div class="callout">
+<p><strong>Regla de la sesión.</strong> Antes de abrir cada ficha, apuesta en voz alta: ¿la formulación es <em>correcta</em>, <em>incompleta</em> o <em>falsa</em>? Apostar antes de ver la respuesta es lo que convierte un repaso en un dato sobre uno mismo. Quien solo lee las fichas no aprende nada que no supiera.</p>
+</div>
+
+<h2 id="fichas">Las doce nociones, con su trampa</h2>
+
+<details class="ficha">
+<summary><span class="n">01</span><span class="frase">«Cada tipo de conocimiento tiene su propia lógica interna; no son comparables entre sí.»<em>El reflejo de la fila única</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-fal">FALSA</span> — no por lo que afirma, sino por lo que concluye.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>Es cierto que comparar por <strong>objeto</strong> no discrimina —la astrología y la astronomía miran los mismos cuerpos celestes— y que comparar por <strong>método</strong> tampoco, porque cada práctica describe el suyo en sus propios términos y la comparación se vuelve circular. De ahí no se sigue que no haya eje alguno. Hay un tercero, observable desde fuera: <strong>¿qué tendría que ocurrir para que quienes sostienen esto reconocieran que se equivocaron, y qué les costaría reconocerlo?</strong> Esa pregunta desdobla dos cosas: si existe un <em>procedimiento de detección</em> del error, y qué <em>consecuencias institucionales</em> acarrea corregirlo.</p>
+<p class="rot">Dónde se paga</p>
+<p>En cuanto de la afirmación dependen decisiones que afectan a terceros. Las prácticas no son intercambiables cuando alguien va a actuar en función de lo que se afirme. Y ojo con las dos lecturas apresuradas del eje: tener procedimiento de detección no garantiza que funcione —la crisis de replicación lo demuestra—, y carecer de él no convierte una práctica en fraude ni en socialmente inútil.</p>
+<p class="rot">La asimetría</p>
+<p>La epistemología teórica pregunta qué hace verdadera a una creencia. La aplicada pregunta <strong>quién corrige el error, cuándo y a qué coste</strong>. La primera columna es epistémica; la segunda es política, y ocupa el resto de la asignatura.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">02</span><span class="frase">«Si toda teoría es revisable, ninguna vale más que otra» / «si en la ciencia hay intereses, la ciencia <em>solo</em> es intereses».<em>Las dos salidas: relativista y cínica</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-fal">FALSAS LAS DOS</span> — premisa correcta, conclusión que no se sigue.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>La primera parte de un hecho cierto, la falibilidad; la segunda, de otro igual de cierto, la existencia de intereses y financiación. Ambas extraen de una premisa verdadera una conclusión inválida. Y la salida contraria tampoco vale: el <strong>cientificismo ingenuo</strong>, según el cual lo que ha sobrevivido institucionalmente es por eso mismo verdadero, ignora que operan a la vez <strong>dos mecanismos de ordenación que no coinciden</strong> —uno epistémico, la capacidad de detectar y corregir el error; otro político-económico, quién financia, quién acredita y quién decide qué se investiga—.</p>
+<p class="rot">Dónde se paga</p>
+<p>En lo que la monografía llama <strong>epistemología de supermercado</strong>: elegir el encuadre metodológico que mejor se ajusta a la conclusión que ya se quería defender. Si conviene una tesis fuerte, se invoca la evidencia empírica; si la evidencia estorba, se recuerda que toda observación está cargada de teoría; si el consenso favorece, se apela al consenso; si no favorece, se recuerda que la ciencia avanzó muchas veces contra el consenso. <strong>Cada movimiento por separado es defendible</strong> —de ahí su resistencia—. Lo que no resiste el examen es alternarlos sin declarar el criterio de elección.</p>
+<p class="rot">La asimetría</p>
+<p>En teoría, el falibilismo es una tesis que se defiende. En aplicada, es una <strong>coartada disponible</strong> que hay que aprender a detectar en el discurso ajeno y en el propio.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">03</span><span class="frase">«Conocimiento es creencia verdadera justificada.»<em>Lo que Gettier rompió y por qué importa fuera del aula</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-inc">INCOMPLETA</span> — las tres condiciones son necesarias y no bastan.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>Ninguna de las tres sobra: sin creencia no hay sujeto que sepa; sin verdad hay convicción errónea por bien fundada que esté; sin justificación queda el acierto por suerte. Pero tampoco bastan. El caso de Russell: alguien mira un reloj de pared, marca las tres y efectivamente son las tres; cree, es verdad y su creencia está justificada —mirar el reloj es un procedimiento razonable—. El reloj lleva parado doce horas exactas. Nadie diría que esa persona <em>sabía</em> la hora. <strong>La justificación no estaba conectada con el hecho de la manera adecuada.</strong></p>
+<p class="rot">Dónde se paga</p>
+<p>En el titular que acierta por casualidad, en el diagnóstico correcto obtenido por un razonamiento equivocado, en la predicción que se cumple por razones distintas de las alegadas. Los tres producen creencias verdaderas, y <strong>el sistema que las generó sigue sin ser fiable</strong>.</p>
+<p class="rot">La asimetría</p>
+<p>Es la bisagra de toda la asignatura. Evaluar afirmaciones consiste en buena medida en <strong>evaluar el procedimiento que las produjo, no solo su contenido</strong>. Un acierto no valida el método que lo produjo, y esto es lo que separa comprobar de estar de acuerdo.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">04</span><span class="frase">«Justificar una creencia es poder dar razones de ella.»<em>Internismo como única opción</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-inc">INCOMPLETA</span> — es una de tres concepciones, y no la que más se usa en esta asignatura.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>Para el <strong>internismo</strong>, la justificación depende de razones a las que el sujeto tiene acceso y que puede exponer, defender y revisar. Para el <strong>externismo</strong>, y en particular el <strong>fiabilismo</strong>, una creencia está justificada si la produjo un proceso fiable, tenga o no el sujeto acceso a las razones: un termómetro bien calibrado no sabe por qué acierta. Y hay una tercera reacción, la de Williamson: dejar de analizar, tratar el conocimiento como <strong>estado mental factivo y primitivo</strong>, y entender la creencia a partir de él y no al revés.</p>
+<p class="rot">Dónde se paga</p>
+<p>Al evaluar una <strong>institución, un protocolo o un instrumento</strong>. Ahí no importa qué razones tiene en la cabeza cada persona, sino con qué frecuencia el procedimiento produce resultados correctos y <strong>qué hace cuando no lo consigue</strong>. Los capítulos 3 y 4 de la monografía trabajan casi todo el tiempo en clave fiabilista, y quien llegue con el internismo como única herramienta pedirá argumentos donde hay que auditar procesos.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría discute cuál de las tres concepciones es correcta. La aplicada las usa <strong>según el objeto</strong>: internismo para examinar un argumento público, fiabilismo para evaluar una agencia. Ninguna es prescindible; equivocarse de herramienta sí tiene coste.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">05</span><span class="frase">«Si admito que puedo estar equivocado, soy escéptico.»<em>Falibilidad y escepticismo</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-fal">FALSA</span> — y es la confusión con más rendimiento político de toda la lista.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>Sostener que cualquier creencia puede ser errónea es perfectamente compatible con sostener que algunas están mucho mejor fundadas que otras. Confundir ambas cosas es el paso exacto que convierte una tesis epistemológica razonable en coartada relativista.</p>
+<p class="rot">Dónde se paga</p>
+<p>En el capítulo 3, entero. El llamado «escepticismo climático» no es una posición filosófica sobre los límites del conocimiento: es <strong>desconfianza dirigida a un consenso concreto</strong>, que toma prestado el prestigio de la primera. Quien no distingue entre duda metódica y duda instrumentalizada no puede analizar ese capítulo, solo tomar partido en él.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría clasifica el escepticismo por su <em>alcance</em> (global, local, cartesiano, humeano). La aplicada tiene que clasificarlo por su <strong>función</strong>: para qué sirve esta duda concreta, quién la financia, qué decisión retrasa. Son dos taxonomías distintas del mismo fenómeno y la segunda no está en los manuales de teoría.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">06</span><span class="frase">«Los datos son los datos» / «toda observación está cargada de teoría, así que los datos no prueban nada».<em>Las dos caras de la misma moneda</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-fal">FALSAS LAS DOS</span> — y suelen usarse alternativamente, según convenga.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>Un dato solo apoya una hipótesis <strong>dentro de un marco de supuestos</strong> que determina qué cuenta como medida, qué como ruido y qué como anomalía. Reconocerlo no obliga a concluir que todo marco vale igual: obliga a <strong>explicitar el propio y a admitir que puede ponerse a prueba</strong>. Esa segunda mitad de la frase es la que desaparece cuando la carga teórica se usa como comodín.</p>
+<p class="rot">Dónde se paga</p>
+<p>Ante una tabla heredada de procedencia dudosa. El orden de comprobación que la propia edición de la monografía aprendió a golpes: <strong>primero la coherencia interna</strong> —si el apartado se contradice consigo mismo en la misma página, ya está—, <strong>después las fuentes</strong>. Un dato inventado suele delatarse por dentro antes que por fuera.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría discute si existe observación neutral. La aplicada no necesita resolver eso: necesita <strong>que el marco esté declarado</strong>, para poder discutirlo. Un marco explícito y discutible vale más que un marco neutral e imposible.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">07</span><span class="frase">«O se sabe o no se sabe.»<em>El conocimiento no admite grados; la justificación sí</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-med">CORRECTA PERO ENGAÑOSA</span> — verdadera del conocimiento, falsa de lo que se discute en público.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>En el uso ordinario decimos que alguien sabe o no sabe, sin grados. Pero <strong>las razones sí admiten grados</strong>. Y buena parte de las controversias públicas no versan sobre si algo se sabe, sino sobre <strong>cuánta evidencia basta para actuar</strong>, que es una cuestión distinta y en parte normativa.</p>
+<p class="rot">Dónde se paga</p>
+<p>En cualquier emergencia. La pregunta operativa nunca es «¿sabemos que el barranco se desbordará?», sino «¿con cuánta probabilidad y con cuánta antelación hay que enviar el aviso, sabiendo lo que cuesta un falso positivo y lo que cuesta un falso negativo?». Discutir la primera pregunta mientras la que decide es la segunda es la forma más común de perder el tiempo con aire de rigor.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría pregunta si <em>S</em> sabe que <em>p</em>. La aplicada pregunta <strong>con cuánta evidencia hay que evacuar un municipio</strong>. La segunda pregunta contiene una decisión sobre el reparto del riesgo que ninguna teoría del conocimiento puede tomar por ti.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">08</span><span class="frase">«Depender de otros para saber es una debilidad que hay que reducir.»<em>Testimonio y dependencia epistémica</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-fal">FALSA</span> — describe como patología la condición normal del conocimiento humano.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>La proporción de lo que cada uno ha verificado personalmente sobre el total de lo que da por sabido es, para cualquier persona instruida, ridícula: la edad del universo, la eficacia de una vacuna recibida en la infancia, el nombre de los bisabuelos, la existencia de Australia. La pregunta pertinente no es cómo librarse de la dependencia, sino <strong>cómo distinguir la confianza bien depositada de la infundada</strong>.</p>
+<p class="rot">Dónde se paga</p>
+<p>En la consigna <em>«investígalo por tu cuenta»</em>, que se presenta como defensa de la autonomía intelectual y funciona con frecuencia como lo contrario: sustituir una dependencia informada —la de instituciones que exponen sus procedimientos y responden de sus errores— por otra opaca: el divulgador, el foro o el algoritmo que devuelve resultados coherentes con lo que ya se buscaba.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría del testimonio discute reduccionismo frente a antirreduccionismo. La aplicada necesita <strong>criterios que un profano pueda usar hoy</strong> sin dominar la materia: las cinco vías de Goldman que están en el simulador de más abajo. La autonomía epistémica no consiste en no depender de nadie, cosa imposible, sino en elegir con criterio de quién se depende y poder revisar esa elección.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">09</span><span class="frase">«O tienes credenciales o tu opinión no cuenta.» / «Todas las opiniones valen lo mismo.»<em>Elitismo y populismo epistémico: el mismo error</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-fal">FALSAS LAS DOS</span> — ambas ignoran la figura intermedia.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>Collins y Evans distinguen la <strong>experticia contributiva</strong> —capacidad de aportar algo en un campo, que se adquiere practicándolo— de la <strong>experticia interaccional</strong>: la capacidad de sostener una conversación técnica competente, formular preguntas pertinentes y <strong>detectar cuándo alguien se sale del guión</strong>, sin ser capaz de contribuir. Se adquiere por inmersión prolongada, y la tienen periodistas científicos veteranos, gestores de programas de investigación, pacientes crónicos expertos en su enfermedad y activistas con años en un asunto.</p>
+<p class="rot">Dónde se paga</p>
+<p>En cualquier controversia donde haya que decidir a quién sentar en la mesa. Ni el saber está reservado a los titulados ni todas las opiniones son equivalentes: <strong>hay un espacio real de competencia adquirida fuera de la carrera académica, y hay maneras de reconocerlo</strong>. Quien solo maneja la dicotomía tendrá que elegir entre dos errores.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría pregunta qué es ser experto. La aplicada pregunta <strong>a quién hay que escuchar en esta comisión concreta</strong>, y necesita una escala con más de dos posiciones para responderlo.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">10</span><span class="frase">«Si no te creen, será que no te has explicado bien.»<em>Injusticia testimonial e ignorancia hermenéutica voluntaria</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-fal">FALSA</span> — atribuye a la calidad del mensaje lo que depende de la posición de quien habla.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>Fricker llamó <strong>injusticia epistémica</strong> al daño que se causa a alguien <em>en su condición de sujeto de conocimiento</em>. La <strong>testimonial</strong> se produce cuando un prejuicio hace que se conceda a alguien menos credibilidad de la que merece: la paciente cuyo dolor se atribuye a los nervios, la trabajadora cuya denuncia de un riesgo se archiva, el vecino que avisa de que el barranco se desborda cada década. La <strong>hermenéutica</strong> es más sutil: la comunidad carece de los conceptos para hacer inteligible una experiencia —el acoso laboral antes de que existiera el término—.</p>
+<p>Y hay un tercer caso, el más útil de los tres. Pohlhaus señala que muchas veces <strong>el recurso conceptual existe</strong> —lo ha elaborado el propio colectivo afectado— y quienes ocupan la posición dominante <strong>se niegan a emplearlo</strong>, porque emplearlo obligaría a revisar su propia posición. Es <strong>ignorancia hermenéutica voluntaria</strong>: no es carecer de algo, es un rechazo activo, y por tanto algo de lo que cabe responder.</p>
+<p class="rot">Dónde se paga</p>
+<p>La distinción es operativa, no decorativa. Los vecinos que llevaban décadas viendo desbordarse el barranco <strong>no carecían de conceptos</strong> para describir el riesgo; lo que no lograron fue que su descripción contara como conocimiento y desencadenara las obras. Diagnosticar «laguna conceptual» donde hubo «rechazo activo» exculpa a quien decidió no escuchar.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría describe un tipo de daño. La aplicada tiene que <strong>identificar al responsable</strong>: quién disponía del recurso y decidió no usarlo. Ahí la epistemología deja de describir y empieza a imputar.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">11</span><span class="frase">«El problema de las redes es que la gente no se expone a otras opiniones.»<em>Burbuja frente a cámara de eco</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-inc">INCOMPLETA</span> — describe bien un fenómeno y mal el otro, que es el grave.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>Nguyen distingue dos estructuras. Una <strong>burbuja epistémica</strong> funciona por <em>omisión</em>: uno no se encuentra con ciertas voces, sin que nadie las haya desacreditado. Una <strong>cámara de eco</strong> funciona por <em>exclusión activa</em>: las voces exteriores han sido desacreditadas de antemano, de modo que la exposición a ellas <strong>refuerza la posición en lugar de erosionarla</strong>.</p>
+<p class="rot">Dónde se paga</p>
+<p>En el diseño de cualquier intervención. Las burbujas se rompen con exposición; las cámaras de eco, no. <strong>Las políticas que confunden ambas cosas gastan recursos en agravar el problema que pretenden resolver.</strong> Y lo que sostiene la exclusión activa no suele ser un desacuerdo sobre los hechos, sino la pertenencia: creer lo que cree el grupo es el precio de seguir en él, y revisar una creencia cuesta entonces mucho más que un cambio de opinión.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría describe estructuras epistémicas. La aplicada tiene que <strong>elegir la intervención</strong>, y ahí un diagnóstico equivocado no es un error inocuo: es presupuesto público gastado en reforzar aquello que se quería desactivar.</p>
+</div>
+</details>
+
+<details class="ficha">
+<summary><span class="n">12</span><span class="frase">«Popper resolvió la demarcación: lo científico es lo falsable.»<em>Qué queda del criterio</em></span></summary>
+<div class="body">
+<p class="rot">Veredicto</p><p><span class="veredicto v-inc">INCOMPLETA</span> — ni criterio único ni abandono de la distinción.</p>
+<p class="rot">El matiz que se perdió</p>
+<p>La falsabilidad tiene límites conocidos, y Laudan llegó a firmar el acta de defunción del problema. Pero abandonarlo deja sin herramienta a quien tiene que decidir. Lo que queda no es una definición sino <strong>un haz de preguntas aplicables a un caso vivo, sin conocer el desenlace y sin dominar la materia</strong>: qué haría cambiar de opinión a quien lo sostiene; ante una anomalía, si la investiga o la absorbe con un ajuste que solo explica el fallo ya ocurrido; si está conectado con el resto del conocimiento o aislado; si el programa gana contenido empírico o solo se defiende; quién soporta la carga de la prueba y si la acepta —la inversión sistemática, <em>demuéstrame que no funciona</em>, es indicio fuerte—; si hay crítica externa efectiva o solo canales propios; y si <strong>se presenta como ciencia</strong>.</p>
+<p class="rot">Dónde se paga</p>
+<p>Ese último rasgo es el que separa la pseudociencia de la simple no ciencia: <strong>la poesía y la liturgia no son pseudociencia porque no pretenden serlo</strong>. Lo distintivo es reclamar el prestigio del método sin someterse a él. Y una cautela que no es cortesía sino método: <strong>demarcar no es descalificar a las personas</strong>. Confundir el juicio sobre una práctica con el juicio sobre quien la sigue es, además de injusto, la vía más rápida para que la comunicación fracase.</p>
+<p class="rot">La asimetría</p>
+<p>La teoría busca condiciones necesarias y suficientes, y por eso el problema se declaró muerto. La aplicada trabaja con <strong>indicios convergentes que se pueden responder con trabajo y sin credenciales</strong>: esa es exactamente la diferencia entre un criterio y una etiqueta.</p>
+</div>
+</details>
+
+<div class="controls">
+  <button class="act" id="abrir-todas">Abrir las doce</button>
+  <button class="act" id="cerrar-todas">Cerrar todas</button>
+  <button class="act" onclick="window.print()">Imprimir</button>
+</div>
+
+<h2 id="test">Test de calibración</h2>
+
+<p>Diez ítems. Responde y <strong>declara tu confianza antes de comprobar</strong>. Hay tres respuestas posibles, y la tercera es la que más se aprende: <em>indecidible con la información dada</em> no es una salida cómoda, es un veredicto con contenido.</p>
+
+<div id="test-cont"></div>
+
+<div id="marcador">Sin responder todavía. <span id="marcador-detalle"></span></div>
+
+<div class="controls">
+  <button class="act" id="corregir">Corregir todo</button>
+  <button class="act" id="reiniciar">Reiniciar</button>
+</div>
+
+<div class="callout warn">
+<p><strong>Qué mirar en el resultado.</strong> El número de aciertos importa menos que <strong>la confianza media con la que fallaste</strong>. Si es alta, el problema no es de información sino de calibración, y la calibración no se corrige leyendo más: se corrige con procedimiento —comprobar antes de afirmar, declarar el criterio, buscar activamente lo que refutaría la propia posición—. Es el mismo diagnóstico que la asignatura aplicará después a instituciones enteras.</p>
+</div>
+
+<h2 id="goldman">Simulador de deferencia: ¿a cuál de los dos expertos creer?</h2>
+
+<p>Piensa en una controversia real y concreta con dos posiciones expertas enfrentadas —puede ser la que trajiste como encargo de la sesión anterior—. Marca, para cada una de las cinco vías de Goldman, <strong>si puedes comprobarla y a favor de quién juega</strong>. Ninguna vía exige entender la materia; todas exigen esfuerzo.</p>
+
+<div id="vias"></div>
+
+<div id="veredicto-goldman"></div>
+
+<div class="callout">
+<p><strong>La trampa del ejercicio.</strong> La alternativa cómoda —creer a quien coincide conmigo— es la epistemología de supermercado aplicada a las personas en lugar de a los métodos. Si al terminar el resultado coincide exactamente con lo que pensabas al empezar, merece la pena repetirlo marcando las vías <em>antes</em> de saber qué postura defiende cada uno.</p>
+</div>
+
+<h2 id="desfase">El desfase, en una tabla</h2>
+
+<p>Doce fichas y un patrón único: <strong>la pregunta cambia de forma al pasar del aula al caso</strong>, y con ella cambia quién puede responderla.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th style="width:32%">La pregunta teórica</th><th style="width:34%">La pregunta aplicada</th><th>Por qué no son la misma</th></tr></thead>
+<tbody>
+<tr><td>¿Qué hace verdadera a una creencia?</td><td>¿Quién corrige el error, cuándo, y a qué coste para quien lo reconoce?</td><td>La segunda tiene una columna institucional que la primera no contempla</td></tr>
+<tr><td>¿Está justificada esta creencia?</td><td>¿Es fiable el procedimiento que la produjo, y qué hace cuando falla?</td><td>Se evalúa un proceso, no un sujeto: el internismo no llega</td></tr>
+<tr><td>¿Sabe <em>S</em> que <em>p</em>?</td><td>¿Cuánta evidencia basta para actuar, sabiendo lo que cuesta cada tipo de error?</td><td>La segunda incorpora un reparto del riesgo que es normativo</td></tr>
+<tr><td>¿Es fiable el testimonio en general?</td><td>¿A cuál de estos dos expertos concretos conviene creer hoy?</td><td>La teoría justifica la práctica; no la sustituye</td></tr>
+<tr><td>¿Qué es ser experto?</td><td>¿A quién hay que sentar en esta comisión?</td><td>Hace falta una escala con más de dos posiciones</td></tr>
+<tr><td>¿En qué consiste la injusticia testimonial?</td><td>¿Quién tenía el concepto disponible y decidió no usarlo?</td><td>Se pasa de describir un daño a imputar una responsabilidad</td></tr>
+<tr><td>¿Existe la observación neutral?</td><td>¿Está declarado el marco, y admite quien lo usa que se ponga a prueba?</td><td>No hace falta resolver la primera para exigir la segunda</td></tr>
+<tr><td>¿Hay un criterio de demarcación?</td><td>¿Qué haría cambiar de opinión a quien sostiene esto?</td><td>Se sustituye la definición por indicios verificables sin credenciales</td></tr>
+<tr><td>¿Es coherente el escepticismo global?</td><td>¿Para qué sirve esta duda concreta, y qué decisión retrasa?</td><td>La taxonomía por función no aparece en los manuales de teoría</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout ok">
+<p><strong>La tesis de la sesión.</strong> El enfoque aplicado no es la teoría rebajada para su uso práctico, ni una colección de ejemplos que ilustran tesis ya establecidas. Es <strong>un conjunto distinto de preguntas</strong>, que aparecen cuando hay una decisión pendiente, un plazo y alguien que soportará las consecuencias. La teoría es necesaria —sin ella no se formulan— y no es suficiente: <strong>ninguna de las preguntas de la columna central se responde con más teoría</strong>.</p>
+</div>
+
+<h2 id="cierre">Qué llevarse de aquí</h2>
+
+<div class="grid2">
+<div class="card">
+<h4>Tres hábitos, no doce contenidos</h4>
+<ol>
+<li><strong>Ante una afirmación, preguntar por el procedimiento antes que por el contenido.</strong> Un acierto no valida el método que lo produjo.</li>
+<li><strong>Declarar el criterio con el que se elige el marco</strong>, cada vez. Es lo único que separa la crítica de la epistemología de supermercado.</li>
+<li><strong>Distinguir «no lo sé» de «no se puede saber» y de «no se sabe todavía».</strong> Las tres se dicen igual y obligan a cosas distintas.</li>
+</ol>
+</div>
+<div class="card">
+<h4>Encargo para la sesión siguiente</h4>
+<p>La sesión 3 recorre una cronología de episodios reales, entre enero de 2025 y septiembre de 2026, en los que instituciones que producen conocimiento independiente han sido descabezadas, desfinanciadas, condicionadas o deslegitimadas.</p>
+<p>Trae <strong>una noticia de ese periodo</strong> que en tu opinión encaje ahí, con el enlace. En clase se comprobará si encaja, cuál de los mecanismos ilustra y —esto es lo importante— <strong>si la noticia dice lo que parecía decir</strong>.</p>
+</div>
+</div>
+
+<footer>
+<p><strong>Filosofía y conocimiento</strong> (26311M9), 4.º del Grado en Filosofía, Universidad de Granada · Parte I, sesión 2.<br>
+Material de práctica. Los contenidos conceptuales proceden del capítulo 1 de la monografía técnica <em>Filosofía y conocimiento</em> (v.6), donde están las referencias completas: Gettier, Williamson, Goldman, Collins y Evans, Fricker, Pohlhaus, Nguyen, Zagzebski, Bunge y Hansson, entre otros. Edición en línea: <a href="https://fcon2026.netlify.app/">fcon2026.netlify.app</a>.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- abrir / cerrar fichas ---------- */
+  function todas(v){
+    Array.prototype.forEach.call(document.querySelectorAll("details.ficha"), function(d){ d.open = v; });
+  }
+  document.getElementById("abrir-todas").addEventListener("click", function(){ todas(true); });
+  document.getElementById("cerrar-todas").addEventListener("click", function(){ todas(false); });
+
+  window.addEventListener("beforeprint", function(){ todas(true); });
+
+  /* ---------- test de calibración ---------- */
+  var ITEMS = [
+    {q:"«Este tratamiento no ha sido refutado por ningún ensayo, luego hay razones para considerarlo eficaz.»",
+     r:"falso",
+     e:"Inversión de la carga de la prueba: <em>demuéstrame que no funciona</em>. Es uno de los indicios más fuertes del haz de demarcación (ficha 12). La ausencia de refutación no es evidencia de eficacia; es, con frecuencia, evidencia de que nadie lo ha puesto a prueba."},
+    {q:"«El pronóstico acertó: la agencia que lo emitió es fiable.»",
+     r:"indecidible",
+     e:"Un acierto aislado no informa sobre la fiabilidad del procedimiento (fichas 3 y 4). Haría falta la serie histórica de aciertos y fallos, y saber qué hace la agencia cuando se equivoca. Con un solo caso, indecidible."},
+    {q:"«Toda observación está cargada de teoría, así que ninguna medición puede zanjar la discusión.»",
+     r:"falso",
+     e:"La premisa es correcta y la conclusión no se sigue (ficha 6). Que un dato dependa de un marco obliga a explicitar el marco, no a renunciar a medir. Usada así, la tesis funciona como comodín para no aceptar ninguna evidencia adversa."},
+    {q:"«Los vecinos llevaban treinta años avisando de que el barranco se desbordaba; no se les hizo caso porque nadie tenía todavía los conceptos para entender ese riesgo.»",
+     r:"falso",
+     e:"Confunde injusticia hermenéutica con ignorancia hermenéutica voluntaria (ficha 10). El recurso conceptual existía —lo tenían los propios vecinos y también la administración hidráulica—. Diagnosticar laguna donde hubo rechazo activo exculpa a quien decidió no escuchar."},
+    {q:"«La ciencia se ha equivocado muchas veces, así que hay que tomar sus conclusiones actuales con la misma reserva que cualquier otra opinión.»",
+     r:"falso",
+     e:"Falibilismo convertido en coartada relativista (fichas 2 y 5). De que cualquier creencia pueda ser errónea no se sigue que todas estén igual de fundadas. La frase, además, usa el historial de autocorrección de la ciencia como argumento en su contra, cuando es justo lo que la distingue."},
+    {q:"«Esta persona no tiene titulación en la materia, así que su valoración técnica no aporta nada.»",
+     r:"falso",
+     e:"Ignora la experticia interaccional (ficha 9). Hay competencia adquirida por inmersión prolongada —periodistas científicos veteranos, pacientes crónicos, gestores de programas— que permite detectar cuándo alguien se sale del guión sin capacidad de contribuir al campo."},
+    {q:"«Ese medio publica sistemáticamente lo contrario de lo que pienso; exponerme a él corregiría mis sesgos.»",
+     r:"indecidible",
+     e:"Depende de la estructura (ficha 11). Si estás en una burbuja epistémica, la exposición ayuda. Si estás en una cámara de eco —o si lo está el medio—, la exposición refuerza la posición previa en lugar de erosionarla. Sin saber cuál es el caso, indecidible."},
+    {q:"«Sabemos que el cambio climático es de origen antrópico, así que la discusión sobre qué medidas adoptar es puramente técnica.»",
+     r:"falso",
+     e:"Salta del conocimiento a la decisión sin pasar por la parte normativa (ficha 7). Cuánta evidencia basta para actuar, quién asume el coste y cómo se reparte el riesgo no son cuestiones que resuelva el consenso sobre los hechos."},
+    {q:"«Un termómetro bien calibrado no sabe por qué acierta, pero sus lecturas están justificadas.»",
+     r:"verdadero",
+     e:"Es la formulación estándar del fiabilismo (ficha 4): la justificación depende de que el proceso sea fiable, no de que el sujeto tenga acceso a las razones. Que sea verdadera dentro del externismo no zanja la disputa con el internismo, pero el enunciado es correcto."},
+    {q:"«Este informe lo firma una institución con intereses económicos en el sector, luego sus conclusiones son falsas.»",
+     r:"falso",
+     e:"El conflicto de interés es una razón sólida para <strong>exigir verificación independiente</strong> y para ajustar el grado de confianza, no para concluir la falsedad (fichas 2 y 8). Es la cuarta vía de Goldman usada como si fuera concluyente por sí sola; ninguna lo es."}
+  ];
+  var ETIQ = {verdadero:"Correcta", falso:"Falsa o inválida", indecidible:"Indecidible con lo dado"};
+  var estado = ITEMS.map(function(){ return {resp:null, conf:60, corregido:false}; });
+
+  var cont = document.getElementById("test-cont");
+  ITEMS.forEach(function(it, i){
+    var div = document.createElement("div");
+    div.className = "item";
+    var botones = ["verdadero","falso","indecidible"].map(function(k){
+      return '<button type="button" data-i="' + i + '" data-r="' + k + '" aria-pressed="false">' + ETIQ[k] + "</button>";
+    }).join("");
+    div.innerHTML = '<p class="q">' + (i+1) + ". " + it.q + "</p>" +
+      '<div class="opts">' + botones + "</div>" +
+      '<div class="conf"><label for="c'+i+'">Confianza</label><input id="c'+i+'" type="range" min="0" max="100" step="5" value="60" data-i="'+i+'"><span class="val" id="cv'+i+'">60&nbsp;%</span></div>' +
+      '<div class="fb" id="fb'+i+'"></div>';
+    cont.appendChild(div);
+  });
+
+  cont.addEventListener("click", function(ev){
+    var b = ev.target.closest("button[data-r]");
+    if (!b) return;
+    var i = parseInt(b.dataset.i, 10);
+    estado[i].resp = b.dataset.r;
+    Array.prototype.forEach.call(cont.querySelectorAll('button[data-i="'+i+'"]'), function(x){
+      x.setAttribute("aria-pressed", x === b ? "true" : "false");
+    });
+    corregirItem(i);
+    marcador();
+  });
+
+  cont.addEventListener("input", function(ev){
+    var r = ev.target;
+    if (r.type !== "range") return;
+    var i = parseInt(r.dataset.i, 10);
+    estado[i].conf = parseInt(r.value, 10);
+    document.getElementById("cv"+i).innerHTML = r.value + "&nbsp;%";
+    marcador();
+  });
+
+  function corregirItem(i){
+    var fb = document.getElementById("fb"+i);
+    var ok = estado[i].resp === ITEMS[i].r;
+    estado[i].corregido = true;
+    fb.className = "fb show " + (ok ? "good" : "bad");
+    fb.innerHTML = "<strong>" + (ok ? "Correcto. " : "No. La respuesta es «" + ETIQ[ITEMS[i].r] + "». ") + "</strong>" + ITEMS[i].e;
+  }
+
+  function marcador(){
+    var resp = estado.filter(function(e){ return e.resp; });
+    var m = document.getElementById("marcador");
+    if (!resp.length) { m.innerHTML = "Sin responder todavía."; return; }
+    var aciertos = 0, confFallo = 0, nFallo = 0, confAcierto = 0;
+    estado.forEach(function(e, i){
+      if (!e.resp) return;
+      if (e.resp === ITEMS[i].r) { aciertos++; confAcierto += e.conf; }
+      else { nFallo++; confFallo += e.conf; }
+    });
+    var txt = "Aciertos: <strong>" + aciertos + "/" + resp.length + "</strong>";
+    if (nFallo) txt += " · confianza media al fallar: <strong>" + Math.round(confFallo/nFallo) + "&nbsp;%</strong>";
+    if (aciertos) txt += " · al acertar: <strong>" + Math.round(confAcierto/aciertos) + "&nbsp;%</strong>";
+    if (nFallo && aciertos && (confFallo/nFallo) >= (confAcierto/aciertos)) {
+      txt += ' <span style="color:var(--risk)">— fallas con más seguridad que aciertas: eso es un problema de calibración, no de información.</span>';
+    }
+    m.innerHTML = txt;
+  }
+
+  document.getElementById("corregir").addEventListener("click", function(){
+    ITEMS.forEach(function(_, i){ if (estado[i].resp) corregirItem(i); });
+    marcador();
+  });
+  document.getElementById("reiniciar").addEventListener("click", function(){
+    estado = ITEMS.map(function(){ return {resp:null, conf:60, corregido:false}; });
+    Array.prototype.forEach.call(cont.querySelectorAll("button[data-r]"), function(b){ b.setAttribute("aria-pressed","false"); });
+    Array.prototype.forEach.call(cont.querySelectorAll('input[type=range]'), function(r){
+      r.value = 60; document.getElementById("cv"+r.dataset.i).innerHTML = "60&nbsp;%";
+    });
+    Array.prototype.forEach.call(cont.querySelectorAll(".fb"), function(f){ f.className = "fb"; f.innerHTML = ""; });
+    marcador();
+  });
+
+  /* ---------- simulador de deferencia (Goldman) ---------- */
+  var VIAS = [
+    {t:"1. Los argumentos y las réplicas", d:"No si son correctos —eso no puedes juzgarlo—, sino si cada uno <em>responde</em> a lo que se le objeta o lo esquiva."},
+    {t:"2. El acuerdo de otros expertos", d:"Cuántos respaldan cada posición, y sobre todo si son independientes o repiten la misma fuente."},
+    {t:"3. Credenciales y trayectoria", d:"En la materia concreta, no en general. Una autoridad legítima en un dominio no lo es en el de al lado."},
+    {t:"4. Sesgos e intereses detectables", d:"Quién financia, qué se gana o se pierde con cada conclusión."},
+    {t:"5. Historial de aciertos verificables", d:"Qué predijo cada uno antes, y cómo salió."}
+  ];
+  var VAL = [
+    {k:"A", txt:"Favorece a A"},
+    {k:"B", txt:"Favorece a B"},
+    {k:"empate", txt:"Empate"},
+    {k:"nocomp", txt:"No puedo comprobarlo"}
+  ];
+  var marcas = VIAS.map(function(){ return null; });
+  var cv = document.getElementById("vias");
+  VIAS.forEach(function(v, i){
+    var d = document.createElement("div");
+    d.className = "via";
+    d.innerHTML = '<p class="t">' + v.t + '</p><p class="d">' + v.d + '</p><div class="sel">' +
+      VAL.map(function(o){ return '<button type="button" data-v="'+i+'" data-k="'+o.k+'" aria-pressed="false">'+o.txt+'</button>'; }).join("") +
+      "</div>";
+    cv.appendChild(d);
+  });
+
+  cv.addEventListener("click", function(ev){
+    var b = ev.target.closest("button[data-k]");
+    if (!b) return;
+    var i = parseInt(b.dataset.v, 10);
+    marcas[i] = b.dataset.k;
+    Array.prototype.forEach.call(cv.querySelectorAll('button[data-v="'+i+'"]'), function(x){
+      x.setAttribute("aria-pressed", x === b ? "true" : "false");
+    });
+    veredicto();
+  });
+
+  function veredicto(){
+    var caja = document.getElementById("veredicto-goldman");
+    var hechas = marcas.filter(function(m){ return m !== null; });
+    if (hechas.length < 5) {
+      caja.innerHTML = '<div class="callout"><p>Marca las cinco vías. Llevas <strong>' + hechas.length + '/5</strong>.</p></div>';
+      return;
+    }
+    var a = marcas.filter(function(m){ return m === "A"; }).length;
+    var b = marcas.filter(function(m){ return m === "B"; }).length;
+    var nc = marcas.filter(function(m){ return m === "nocomp"; }).length;
+    var comprobables = 5 - nc;
+    var txt, clase;
+
+    if (comprobables <= 1) {
+      clase = "risk";
+      txt = "<strong>No hay base para deferir a ninguno.</strong> Con " + comprobables + " vía comprobable, cualquier elección entre los dos expertos la estarías tomando por afinidad, no por criterio. La conclusión honesta es suspender el juicio y decir en voz alta qué información falta.";
+    } else if (Math.abs(a-b) === 0) {
+      clase = "warn";
+      txt = "<strong>Empate sobre " + comprobables + " vías comprobables.</strong> No es un resultado nulo: significa que la controversia está genuinamente abierta para un profano, y que quien afirme lo contrario con seguridad no lo hace sobre estos indicios. Localiza qué vía inclinaría la balanza y ve a por ella.";
+    } else {
+      var gana = a > b ? "A" : "B";
+      var margen = Math.abs(a-b);
+      clase = (comprobables >= 3 && margen >= 2) ? "ok" : "warn";
+      txt = "<strong>Deferencia provisional hacia " + gana + "</strong>, por " + Math.max(a,b) + " vías frente a " + Math.min(a,b) + ", sobre " + comprobables + " comprobables" + (nc ? " (" + nc + " sin comprobar)" : "") + ". " +
+        (clase === "ok"
+          ? "Es todo lo que cabe pedir: una decisión razonada y revisable, no una certeza. Escribe qué hallazgo te haría cambiarla."
+          : "Margen estrecho o pocas vías: trátalo como una preferencia débil y sigue buscando. Ninguna vía es concluyente por separado.");
+    }
+    caja.innerHTML = '<div class="callout ' + clase + '"><p>' + txt + "</p></div>";
+  }
+  veredicto();
+
+  /* ---------- índice activo ---------- */
+  var enlaces = Array.prototype.slice.call(document.querySelectorAll("nav.toc a"));
+  var secciones = enlaces.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+  if ("IntersectionObserver" in window) {
+    var obs = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = secciones.indexOf(e.target);
+        if (i < 0) return;
+        enlaces.forEach(function(a, j){ a.classList.toggle("on", i === j); });
+      });
+    }, {rootMargin:"-15% 0px -75% 0px"});
+    secciones.forEach(function(s){ if (s) obs.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
